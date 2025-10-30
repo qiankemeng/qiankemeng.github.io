@@ -4,12 +4,12 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
   const copy = locale === 'zh'
     ? {
         heading: '联系与合作',
-        description: '欢迎通过邮件或社交网络与我交流合作、讨论想法。',
+        description: '欢迎就多模态大模型研究、科研合作或个人项目与我交流。',
         cta: '发送邮件'
       }
     : {
         heading: 'Get in touch',
-        description: 'Reach out for collaborations, opportunities, or a quick chat.',
+        description: 'Let’s connect around multimodal research, collaborations, or personal projects.',
         cta: 'Drop an email'
       };
 
@@ -22,7 +22,7 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4 text-sm">
           <Link
-            href="mailto:hello@qiankemeng.com"
+            href="mailto:mengqianke1@gmail.com"
             className="rounded-full bg-[var(--accent)] px-5 py-3 font-semibold text-white hover:opacity-90"
           >
             {copy.cta}

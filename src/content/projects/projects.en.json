@@ -1,7 +1,16 @@
 [
   {
+    "title": "Multimodal Dialogue Prototype",
+    "summary": "An experimental vision-language QA system studying cross-modal reasoning strategies.",
+    "tags": ["Multimodal", "LLM", "Research"],
+    "links": {
+      "github": "#",
+      "demo": "#"
+    }
+  },
+  {
     "title": "Bilingual Personal Site",
-    "summary": "A Next.js + Tailwind personal site built for fast deployment and seamless localization.",
+    "summary": "Static Next.js + Tailwind site presenting my research focus and public projects.",
     "tags": ["Next.js", "Tailwind", "i18n"],
     "links": {
       "github": "https://github.com/qiankemeng/qiankemeng.github.io",
@@ -10,7 +19,7 @@
   },
   {
     "title": "Component Library Explorations",
-    "summary": "Experimenting with a custom React component system supporting dark mode and accessibility.",
+    "summary": "A custom React component system that keeps experimentation dashboards consistent and dark-mode ready.",
     "tags": ["React", "Design System"],
     "links": {
       "github": "#",

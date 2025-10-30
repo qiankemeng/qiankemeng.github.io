@@ -4,16 +4,16 @@ import Link from 'next/link';
 export function HeroSection({ locale }: { locale: 'zh' | 'en' }) {
   const copy = locale === 'zh'
     ? {
-        tagline: '专注 Web 体验',
-        title: '你好，我是钱可萌',
-        subtitle: '前端工程师 · 产品构建者 · 终身学习者',
+        tagline: '多模态大模型研究',
+        title: '你好，我是孟乾轲',
+        subtitle: '2002 年出生的多模态大模型研究者，聚焦视觉与语言融合的生成智能。',
         actionPortfolio: '查看作品集',
         actionResume: '下载简历'
       }
     : {
-        tagline: 'Crafting web experiences',
-        title: "Hi, I'm Kemeng Qian",
-        subtitle: 'Front-end engineer · Product builder · Lifelong learner',
+        tagline: 'Multimodal AI Research',
+        title: "Hi, I'm Meng Qianke",
+        subtitle: 'Born in 2002, a multimodal large-model researcher exploring vision-language intelligence.',
         actionPortfolio: 'View portfolio',
         actionResume: 'Download résumé'
       };
@@ -47,7 +47,7 @@ export function HeroSection({ locale }: { locale: 'zh' | 'en' }) {
         <div className="relative mx-auto h-48 w-48 overflow-hidden rounded-full border border-slate-200 shadow-lg">
           <Image
             src="/images/avatar-placeholder.svg"
-            alt={locale === 'zh' ? '钱可萌头像占位符' : 'Placeholder portrait for Kemeng Qian'}
+            alt={locale === 'zh' ? '孟乾轲头像占位符' : 'Placeholder portrait for Meng Qianke'}
             fill
             sizes="(max-width: 640px) 192px, 240px"
             className="object-cover"

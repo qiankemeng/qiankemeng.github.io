@@ -1,20 +1,20 @@
 [
   {
-    "timeframe": "2023 - Present",
+    "timeframe": "2024 - Present",
+    "title": "Multimodal Model Researcher",
+    "company": "Multimodal Intelligence Lab",
+    "highlights": [
+      "Building vision-language dialogue prototypes to study cross-modal alignment",
+      "Leading data curation and evaluation to improve generation faithfulness"
+    ]
+  },
+  {
+    "timeframe": "2021 - 2024",
     "title": "Front-end Engineer",
     "company": "Example Tech",
     "highlights": [
       "Built and maintained an enterprise design system",
       "Led internationalization performance tuning with a 30% core metric improvement"
-    ]
-  },
-  {
-    "timeframe": "2021 - 2023",
-    "title": "Product Developer Intern",
-    "company": "Creative Studio",
-    "highlights": [
-      "Delivered multiple data visualization dashboards",
-      "Introduced automated testing to cut regression time"
     ]
   }
 ]

@@ -7,10 +7,10 @@ import { Providers } from '@/components/providers';
 
 export const metadata: Metadata = {
   title: {
-    default: '钱可萌 | 个人主页',
-    template: '%s | 钱可萌'
+    default: '孟乾轲 | 个人主页',
+    template: '%s | 孟乾轲'
   },
-  description: '钱可萌的双语个人主页，展示项目、经历与联系信息。'
+  description: '孟乾轲（2002）从事多模态大模型研究的个人主页，展示科研方向、项目与联系信息。'
 };
 
 export default function RootLayout({

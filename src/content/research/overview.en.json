@@ -1,0 +1,18 @@
+{
+  "headline": "Multimodal Understanding & Generation",
+  "summary": "I study joint modeling of vision, language, and speech with an emphasis on robust alignment, parameter-efficient adaptation, and few-shot generalization for large multimodal models.",
+  "focus": [
+    {
+      "title": "Vision-Language Alignment",
+      "description": "Combine contrastive learning and instruction tuning to better ground semantics in complex scenes."
+    },
+    {
+      "title": "Efficient Inference",
+      "description": "Prototype layered attention and caching tricks to lower latency during long-form dialogue generation."
+    },
+    {
+      "title": "Evaluation Suites",
+      "description": "Design benchmarks covering QA, captioning, and retrieval to study reliability in real-world settings."
+    }
+  ]
+}

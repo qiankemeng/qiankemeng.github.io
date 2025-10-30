@@ -1,7 +1,16 @@
 [
   {
-    "title": "多语言个人主页",
-    "summary": "基于 Next.js 与 Tailwind 的个人站点，聚焦高速部署与跨语言内容管理。",
+    "title": "多模态对话系统原型",
+    "summary": "基于视觉与语言特征融合的多模态问答实验，探索跨模态协同推理。",
+    "tags": ["Multimodal", "LLM", "Research"],
+    "links": {
+      "github": "#",
+      "demo": "#"
+    }
+  },
+  {
+    "title": "双语个人主页",
+    "summary": "使用 Next.js 与 Tailwind 构建的静态站点，展示科研方向与公开项目。",
     "tags": ["Next.js", "Tailwind", "i18n"],
     "links": {
       "github": "https://github.com/qiankemeng/qiankemeng.github.io",
@@ -10,7 +19,7 @@
   },
   {
     "title": "组件库探索",
-    "summary": "尝试构建自定义 React 组件库，提供暗色主题与可访问性支持。",
+    "summary": "构建自定义 React 组件库，为实验平台提供一致的交互与暗色主题适配。",
     "tags": ["React", "Design System"],
     "links": {
       "github": "#",

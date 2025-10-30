@@ -1,0 +1,20 @@
+[
+  {
+    "title": "多语言个人主页",
+    "summary": "基于 Next.js 与 Tailwind 的个人站点，聚焦高速部署与跨语言内容管理。",
+    "tags": ["Next.js", "Tailwind", "i18n"],
+    "links": {
+      "github": "https://github.com/qiankemeng/qiankemeng.github.io",
+      "demo": "https://qiankemeng.github.io"
+    }
+  },
+  {
+    "title": "组件库探索",
+    "summary": "尝试构建自定义 React 组件库，提供暗色主题与可访问性支持。",
+    "tags": ["React", "Design System"],
+    "links": {
+      "github": "#",
+      "demo": "#"
+    }
+  }
+]

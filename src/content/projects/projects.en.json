@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Bilingual Personal Site",
+    "summary": "A Next.js + Tailwind personal site built for fast deployment and seamless localization.",
+    "tags": ["Next.js", "Tailwind", "i18n"],
+    "links": {
+      "github": "https://github.com/qiankemeng/qiankemeng.github.io",
+      "demo": "https://qiankemeng.github.io"
+    }
+  },
+  {
+    "title": "Component Library Explorations",
+    "summary": "Experimenting with a custom React component system supporting dark mode and accessibility.",
+    "tags": ["React", "Design System"],
+    "links": {
+      "github": "#",
+      "demo": "#"
+    }
+  }
+]

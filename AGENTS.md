@@ -4,7 +4,7 @@
 Runtime routes live in `src/app/` using the App Router: `page.tsx` for zh-CN, `en/page.tsx` for English. Shared UI sits in `src/components/`, page blocks in `src/sections/`, and copy/data in `src/content/` with locale-specific JSON. Long-form config lives in `src/config/`, helper logic under `src/lib/`, hooks in `src/hooks/`, and deployment helpers inside `scripts/`. Static assets are stored in `public/`.
 
 ## Build, Test, and Development Commands
-Install dependencies via `npm install`. Start local development using `npm run dev`; the site serves at `http://localhost:3000` with hot reload. Run `npm run lint` before commits to apply ESLint + Next.js checks. Produce an export bundle for GitHub Pages with `npm run build && npm run export`.
+Install dependencies via `npm install`. Start local development using `npm run dev`; the site serves at `http://localhost:3000` with hot reload. Run `npm run lint` before commits to apply ESLint + Next.js checks. Build the static export used by GitHub Pages with `npm run build`—the output ships to `out/` because `output: 'export'` is set in `next.config.js`.
 
 ## Coding Style & Naming Conventions
 Use TypeScript everywhere (files end in `.ts` or `.tsx`). Component files are PascalCase, hooks use `use*`, and locale data files use `*.zh.json` / `*.en.json`. Keep indentation at two spaces, favor named exports, and avoid default exports except for route components. Rely on ESLint and Prettier (configured via project defaults) instead of manual formatting.

@@ -31,9 +31,10 @@ export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
       </div>
       <ul className="grid gap-6 md:grid-cols-2">
         {posts.slice(0, 2).map((post) => (
-          <li
+          <Link
             key={post.slug}
-            className="rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60"
+            href={locale === 'zh' ? '/blog' : '/en/blog'}
+            className="block rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60"
           >
             <time className="text-xs uppercase tracking-wide text-slate-400">
               {formatDate(post.date, locale)}
@@ -54,13 +55,10 @@ export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
                 </span>
               ))}
             </div>
-            <Link
-              href={(locale === 'zh' ? '/blog' : '/en/blog') + `/${post.slug}`}
-              className="mt-4 inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:underline"
-            >
-              {locale === 'zh' ? '阅读全文' : 'Read article'}
-            </Link>
-          </li>
+            <div className="mt-4 text-sm text-[var(--accent)]">
+              {locale === 'zh' ? '查看详情 →' : 'Read more →'}
+            </div>
+          </Link>
         ))}
       </ul>
     </section>

@@ -46,8 +46,8 @@ export function HeroSection({ locale }: { locale: 'zh' | 'en' }) {
       <div className="flex-1">
         <div className="relative mx-auto h-48 w-48 overflow-hidden rounded-full border border-slate-200 shadow-lg">
           <Image
-            src="/images/avatar-placeholder.svg"
-            alt={locale === 'zh' ? '孟乾轲头像占位符' : 'Placeholder portrait for Meng Qianke'}
+            src="/images/avatars/avatar.png"
+            alt={locale === 'zh' ? '孟乾轲' : 'Meng Qianke'}
             fill
             sizes="(max-width: 640px) 192px, 240px"
             className="object-cover"

@@ -1,0 +1,16 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#f1f5f9"/>
+  <text x="100" y="90" font-family="Arial, sans-serif" font-size="16" fill="#64748b" text-anchor="middle">
+    邮箱二维码
+  </text>
+  <text x="100" y="110" font-family="Arial, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">
+    Email QR Code
+  </text>
+  <text x="100" y="130" font-family="Arial, sans-serif" font-size="10" fill="#cbd5e1" text-anchor="middle">
+    请替换为真实二维码
+  </text>
+  <rect x="60" y="140" width="80" height="40" rx="4" fill="#e2e8f0"/>
+  <text x="100" y="165" font-family="monospace" font-size="24" fill="#64748b" text-anchor="middle">
+    QR
+  </text>
+</svg>

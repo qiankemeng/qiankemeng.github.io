@@ -9,5 +9,13 @@ export const siteConfig = {
     github: 'https://github.com/qiankemeng',
     linkedin: 'https://www.linkedin.com',
     twitter: 'https://twitter.com'
+  },
+  qrcodes: {
+    wechat: '/images/qrcodes/wechat-qr.png',
+    email: '/images/qrcodes/email-qr.png',
+    // 可选：公众号、小红书等
+    // officialAccount: '/images/qrcodes/official-account-qr.png',
+    // xiaohongshu: '/images/qrcodes/xiaohongshu-qr.png',
   }
 };
+

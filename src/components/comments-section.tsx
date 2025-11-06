@@ -17,14 +17,14 @@ export function CommentsSection({ locale }: CommentsSectionProps) {
       </h2>
       <Giscus
         repo="qiankemeng/qiankemeng.github.io"
-        repoId="R_kgDONUqHsQ"
+        repoId="R_kgDOQMM8oQ"
         category="Announcements"
-        categoryId="DIC_kwDONUqHsc4Ck6A8"
+        categoryId="DIC_kwDOQMM8oc4Cxfsu"
         mapping="pathname"
         strict="0"
         reactionsEnabled="1"
         emitMetadata="0"
-        inputPosition="top"
+        inputPosition="bottom"
         theme={theme === 'dark' ? 'dark' : 'light'}
         lang={locale === 'zh' ? 'zh-CN' : 'en'}
         loading="lazy"

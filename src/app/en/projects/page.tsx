@@ -1,6 +1,16 @@
 import projectsEn from '@/content/projects/projects.en.json';
 import Link from 'next/link';
 
+interface Project {
+  title: string;
+  summary: string;
+  tags: string[];
+  links: {
+    github?: string;
+    demo?: string;
+  };
+}
+
 export default function ProjectsListingEn() {
   return (
     <section className="py-16">
@@ -9,7 +19,7 @@ export default function ProjectsListingEn() {
         Placeholder copy: replace with detailed project write-ups later.
       </p>
       <ul className="mt-10 space-y-6">
-        {projectsEn.map((project) => (
+        {(projectsEn as Project[]).map((project) => (
           <li key={project.title} className="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700">
             <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
               {project.title}

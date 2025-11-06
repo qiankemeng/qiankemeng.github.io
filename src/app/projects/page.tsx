@@ -1,6 +1,16 @@
 import projectsZh from '@/content/projects/projects.zh.json';
 import Link from 'next/link';
 
+interface Project {
+  title: string;
+  summary: string;
+  tags: string[];
+  links: {
+    github?: string;
+    demo?: string;
+  };
+}
+
 export default function ProjectsListingZh() {
   return (
     <section className="py-16">
@@ -9,7 +19,7 @@ export default function ProjectsListingZh() {
         占位数据：后续可替换为真实项目内容。
       </p>
       <ul className="mt-10 space-y-6">
-        {projectsZh.map((project) => (
+        {(projectsZh as Project[]).map((project) => (
           <li key={project.title} className="rounded-2xl border border-slate-200 p-6 shadow-sm dark:border-slate-700">
             <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
               {project.title}

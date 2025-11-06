@@ -1,29 +1,19 @@
 [
   {
-    "title": "多模态对话系统原型",
-    "summary": "基于视觉与语言特征融合的多模态问答实验，探索跨模态协同推理。",
-    "tags": ["Multimodal", "LLM", "Research"],
-    "links": {
-      "github": "#",
-      "demo": "#"
-    }
-  },
-  {
     "title": "双语个人主页",
     "summary": "使用 Next.js 与 Tailwind 构建的静态站点，展示科研方向与公开项目。",
-    "tags": ["Next.js", "Tailwind", "i18n"],
+    "tags": ["Next.js", "TypeScript", "Tailwind"],
     "links": {
       "github": "https://github.com/qiankemeng/qiankemeng.github.io",
       "demo": "https://qiankemeng.github.io"
     }
   },
   {
-    "title": "组件库探索",
-    "summary": "构建自定义 React 组件库，为实验平台提供一致的交互与暗色主题适配。",
-    "tags": ["React", "Design System"],
+    "title": "DingTalk GPU 监控",
+    "summary": "无需管理员权限的 NVIDIA GPU 利用率和内存监控工具，支持钉钉告警通知。",
+    "tags": ["Shell", "DevOps", "监控"],
     "links": {
-      "github": "#",
-      "demo": "#"
+      "github": "https://github.com/qiankemeng/dingtalk-gpu-monitor"
     }
   }
 ]

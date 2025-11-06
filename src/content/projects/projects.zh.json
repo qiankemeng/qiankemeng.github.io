@@ -1,11 +1,10 @@
 [
   {
-    "title": "双语个人主页",
-    "summary": "使用 Next.js 与 Tailwind 构建的静态站点，展示科研方向与公开项目。",
-    "tags": ["Next.js", "TypeScript", "Tailwind"],
+    "title": "Food Agent",
+    "summary": "面向食品饮料研发的 AI Agent，辅助从创意探索到配方设计、实验记录、合规校验的端到端工作流。",
+    "tags": ["Python", "AI Agent", "食品科技"],
     "links": {
-      "github": "https://github.com/qiankemeng/qiankemeng.github.io",
-      "demo": "https://qiankemeng.github.io"
+      "github": "https://github.com/qiankemeng/food_agent"
     }
   },
   {

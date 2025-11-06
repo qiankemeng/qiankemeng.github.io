@@ -1,11 +1,10 @@
 [
   {
-    "title": "Bilingual Personal Site",
-    "summary": "Static Next.js + Tailwind site presenting my research focus and public projects.",
-    "tags": ["Next.js", "TypeScript", "Tailwind"],
+    "title": "Food Agent",
+    "summary": "An AI agent for food and beverage R&D teams, supporting end-to-end workflow from ideation to formulation, experimentation, compliance, and evaluation.",
+    "tags": ["Python", "AI Agent", "FoodTech"],
     "links": {
-      "github": "https://github.com/qiankemeng/qiankemeng.github.io",
-      "demo": "https://qiankemeng.github.io"
+      "github": "https://github.com/qiankemeng/food_agent"
     }
   },
   {

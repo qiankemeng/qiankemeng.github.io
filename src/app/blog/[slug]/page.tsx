@@ -1,28 +1,78 @@
-import postsZh from '@/content/blog/posts.zh.json';
+import { getPostBySlug, getAllPostSlugs } from '@/lib/blog';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import remarkGfm from 'remark-gfm';
+import { CommentsSection } from '@/components/comments-section';
+import 'highlight.js/styles/github-dark.css';
 
 type Props = {
   params: { slug: string };
 };
 
 export function generateStaticParams() {
-  return postsZh.map((post) => ({ slug: post.slug }));
+  return getAllPostSlugs().map((slug) => ({ slug }));
+}
+
+export async function generateMetadata({ params }: Props) {
+  try {
+    const post = getPostBySlug(params.slug, 'zh');
+    return {
+      title: post.title,
+      description: post.summary
+    };
+  } catch {
+    return {
+      title: '文章未找到'
+    };
+  }
 }
 
 export default function BlogPostZh({ params }: Props) {
-  const post = postsZh.find((item) => item.slug === params.slug);
+  try {
+    const post = getPostBySlug(params.slug, 'zh');
 
-  if (!post) {
+    return (
+      <article className="py-16">
+        <header className="mb-8 border-b border-slate-200 pb-8 dark:border-slate-700">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">
+            {post.title}
+          </h1>
+          <div className="mt-4 flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+            <time dateTime={post.date}>{post.date}</time>
+          </div>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {post.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </header>
+        <div className="prose prose-slate dark:prose-invert max-w-none">
+          <MDXRemote
+            source={post.content}
+            options={{
+              mdxOptions: {
+                remarkPlugins: [remarkGfm],
+                rehypePlugins: [
+                  rehypeHighlight,
+                  rehypeSlug,
+                  [rehypeAutolinkHeadings, { behavior: 'wrap' }]
+                ]
+              }
+            }}
+          />
+        </div>
+        <CommentsSection locale="zh" />
+      </article>
+    );
+  } catch {
     notFound();
   }
-
-  return (
-    <article className="prose prose-slate dark:prose-invert">
-      <h1>{post.title}</h1>
-      <p className="text-sm text-slate-400">{post.date}</p>
-      <p>
-        占位内容：未来将补充关于多模态大模型实验设置、数据处理流程以及指标分析的完整文章。
-      </p>
-    </article>
-  );
 }

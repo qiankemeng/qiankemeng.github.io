@@ -1,13 +1,5 @@
-import postsZh from '@/content/blog/posts.zh.json';
-import postsEn from '@/content/blog/posts.en.json';
+import { getAllPosts } from '@/lib/blog';
 import Link from 'next/link';
-
-interface PostBrief {
-  title: string;
-  summary: string;
-  date: string;
-  slug: string;
-}
 
 function formatDate(date: string, locale: 'zh' | 'en') {
   return new Intl.DateTimeFormat(locale === 'zh' ? 'zh-CN' : 'en-US', {
@@ -18,7 +10,7 @@ function formatDate(date: string, locale: 'zh' | 'en') {
 }
 
 export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
-  const posts = (locale === 'zh' ? postsZh : postsEn) as PostBrief[];
+  const posts = getAllPosts(locale);
 
   return (
     <section id="blog" className="py-16">
@@ -33,12 +25,12 @@ export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
               : 'Notes on product thinking, engineering practices, and learning.'}
           </p>
         </div>
-        <Link href={locale === 'zh' ? '/blog' : '/en/blog'} className="text-sm">
+        <Link href={locale === 'zh' ? '/blog' : '/en/blog'} className="text-sm hover:underline">
           {locale === 'zh' ? '阅读更多' : 'Read more'}
         </Link>
       </div>
       <ul className="grid gap-6 md:grid-cols-2">
-        {posts.map((post) => (
+        {posts.slice(0, 2).map((post) => (
           <li
             key={post.slug}
             className="rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60"
@@ -52,9 +44,19 @@ export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
             <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
               {post.summary}
             </p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {post.tags.slice(0, 3).map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
             <Link
               href={(locale === 'zh' ? '/blog' : '/en/blog') + `/${post.slug}`}
-              className="mt-4 inline-flex items-center gap-2 text-sm text-[var(--accent)]"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-[var(--accent)] hover:underline"
             >
               {locale === 'zh' ? '阅读全文' : 'Read article'}
             </Link>

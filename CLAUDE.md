@@ -56,6 +56,31 @@ All content is stored in JSON files under `src/content/` with separate files for
 
 Sections import and render content based on the locale prop.
 
+### Blog System
+Blog posts are written in MDX (Markdown with JSX support) and stored in `src/content/blog/posts/`:
+- File naming: `{slug}.{locale}.md` (e.g., `multimodal-lab-notes-2024.zh.md`)
+- Frontmatter format using gray-matter:
+  ```yaml
+  ---
+  title: "Post Title"
+  date: "YYYY-MM-DD"
+  summary: "Brief description"
+  tags: ["tag1", "tag2"]
+  ---
+  ```
+- Helper functions in `src/lib/blog.ts`:
+  - `getAllPosts(locale)`: Get all posts metadata for a locale
+  - `getPostBySlug(slug, locale)`: Get full post content
+  - `getAllPostSlugs()`: Get all unique slugs for static generation
+
+MDX processing pipeline:
+- **remark-gfm**: GitHub Flavored Markdown support (tables, task lists, etc.)
+- **rehype-highlight**: Syntax highlighting using highlight.js (github-dark theme)
+- **rehype-slug**: Auto-generate IDs for headings
+- **rehype-autolink-headings**: Add anchor links to headings
+
+Comments powered by Giscus (GitHub Discussions integration) via `@giscus/react`.
+
 ### Path Aliases
 TypeScript path aliases configured in `tsconfig.json`:
 - `@/components/*` → `src/components/*`
@@ -63,15 +88,48 @@ TypeScript path aliases configured in `tsconfig.json`:
 - `@/content/*` → `src/content/*`
 - `@/hooks/*` → `src/hooks/*`
 - `@/lib/*` → `src/lib/*`
+- `@/types/*` → `src/types/*`
+- `@/config/*` → `src/config/*`
 
 ### Static Export Configuration
 The site uses `output: 'export'` in `next.config.js` to generate a static site in the `./out` directory. Images are set to `unoptimized: true` for static hosting compatibility.
 
 ### Styling
-- Tailwind CSS with custom brand colors in `tailwind.config.ts`
+- Tailwind CSS with custom brand colors in `tailwind.config.ts` (brand blue: `#2563eb`)
 - Dark mode support via `next-themes` (class-based)
 - CSS custom properties for theme colors in `src/app/globals.css`
-- Typography plugin for rich text content
+- Typography plugin (`@tailwindcss/typography`) for rich text content with `prose` classes
+
+### Public Assets
+Static assets in `public/` directory:
+- `public/images/avatars/` - Profile pictures
+- `public/images/qrcodes/` - WeChat and email QR codes
+- `public/papers/` - Research papers and thesis PDFs
+- `public/resume.pdf` - Resume/CV file
 
 ### CI/CD
-GitHub Actions workflow (`.github/workflows/deploy.yml`) automatically builds and deploys to GitHub Pages on push to `main` branch.
+GitHub Actions workflow (`.github/workflows/deploy.yml`) automatically:
+- Builds static site on push to `main` branch
+- Uses Node.js 20
+- Outputs to `./out` directory
+- Deploys to GitHub Pages with appropriate permissions
+
+## Coding Conventions
+
+### File Naming
+- Component files: PascalCase (e.g., `SiteHeader.tsx`)
+- Hooks: `use*` prefix (e.g., `useTheme.ts`)
+- Locale data files: `*.zh.json` / `*.en.json`
+- Route components: `page.tsx` (default exports allowed)
+- Utility files: kebab-case (e.g., `file-meta.ts`)
+
+### TypeScript
+- Use TypeScript everywhere (`.ts` or `.tsx`)
+- Prefer named exports over default exports (except for route components)
+- 2-space indentation
+- Strict mode enabled in `tsconfig.json`
+
+### Commits
+- Follow Conventional Commits format: `feat:`, `fix:`, `docs:`, `chore:`, etc.
+- Use present-tense, succinct summaries
+- Reference issue IDs in commit footers when applicable

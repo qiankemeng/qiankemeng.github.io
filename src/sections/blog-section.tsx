@@ -19,11 +19,6 @@ export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
           <h2 className="text-2xl font-semibold">
             {locale === 'zh' ? '最新文章' : 'Latest Writing'}
           </h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-            {locale === 'zh'
-              ? '记录产品思考、工程实践与学习笔记。'
-              : 'Notes on product thinking, engineering practices, and learning.'}
-          </p>
         </div>
         <Link href={locale === 'zh' ? '/blog' : '/en/blog'} className="text-sm hover:underline">
           {locale === 'zh' ? '阅读更多' : 'Read more'}

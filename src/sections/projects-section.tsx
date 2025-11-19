@@ -59,11 +59,6 @@ export function ProjectsSection({ locale }: { locale: 'zh' | 'en' }) {
           <h2 className="text-2xl font-semibold">
             {locale === 'zh' ? '精选项目' : 'Featured Projects'}
           </h2>
-          <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-            {locale === 'zh'
-              ? '近期代表性作品与探索，覆盖 Web 应用与设计系统。'
-              : 'Selected work across web applications and design systems.'}
-          </p>
         </div>
         <Link href={locale === 'zh' ? '/projects' : '/en/projects'} className="text-sm">
           {locale === 'zh' ? '查看全部' : 'View all'}

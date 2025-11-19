@@ -16,11 +16,6 @@ export function ExperienceSection({ locale }: { locale: 'zh' | 'en' }) {
       <h2 className="text-2xl font-semibold">
         {locale === 'zh' ? '经历' : 'Experience'}
       </h2>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-        {locale === 'zh'
-          ? '按时间顺序概览关键任职与贡献。'
-          : 'Chronological overview of key roles and contributions.'}
-      </p>
       <ol className="mt-8 space-y-6 border-l border-slate-200 pl-6 dark:border-slate-700">
         {list.map((item) => (
           <li key={`${item.company}-${item.timeframe}`} className="relative">

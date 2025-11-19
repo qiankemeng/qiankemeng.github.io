@@ -6,14 +6,14 @@ export function HeroSection({ locale }: { locale: 'zh' | 'en' }) {
     ? {
         tagline: '多模态大模型研究',
         title: '你好，我是孟乾轲',
-        subtitle: '2002 年出生的多模态大模型研究者，聚焦视觉与语言融合的生成智能。',
+        subtitle: '主要从事多模态大模型、智能体、视频问答相关的科研工作，聚焦视觉与语言融合的生成智能。',
         actionPortfolio: '查看作品集',
         actionResume: '下载简历'
       }
     : {
         tagline: 'Multimodal AI Research',
         title: "Hi, I'm Meng Qianke",
-        subtitle: 'Born in 2002, a multimodal large-model researcher exploring vision-language intelligence.',
+        subtitle: 'Focusing on multimodal large models, agents, and video question answering, with an emphasis on vision-language generative intelligence.',
         actionPortfolio: 'View portfolio',
         actionResume: 'Download résumé'
       };

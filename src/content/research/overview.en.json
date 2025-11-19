@@ -3,16 +3,16 @@
   "summary": "I study joint modeling of vision, language, and speech with an emphasis on robust alignment, parameter-efficient adaptation, and few-shot generalization for large multimodal models.",
   "focus": [
     {
-      "title": "Vision-Language Alignment",
-      "description": "Combine contrastive learning and instruction tuning to better ground semantics in complex scenes."
+      "title": "Multimodal Large Models",
+      "description": "Investigate robust alignment mechanisms across vision, language, and speech, combining contrastive learning with instruction tuning to enhance cross-modal semantic understanding and generation."
     },
     {
-      "title": "Efficient Inference",
-      "description": "Prototype layered attention and caching tricks to lower latency during long-form dialogue generation."
+      "title": "Agent Systems",
+      "description": "Develop autonomous agents powered by large models, focusing on tool invocation, reasoning, planning, and environmental interaction for automated task execution."
     },
     {
-      "title": "Evaluation Suites",
-      "description": "Design benchmarks covering QA, captioning, and retrieval to study reliability in real-world settings."
+      "title": "Video Question Answering",
+      "description": "Design temporal modeling and keyframe selection strategies for long-video understanding, integrating parameter-efficient tuning and few-shot learning to improve QA generalization and real-time performance."
     }
   ]
 }

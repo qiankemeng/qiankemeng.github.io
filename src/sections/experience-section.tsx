@@ -14,7 +14,7 @@ export function ExperienceSection({ locale }: { locale: 'zh' | 'en' }) {
   return (
     <section id="experience" className="py-16">
       <h2 className="text-2xl font-semibold">
-        {locale === 'zh' ? '经历与成就' : 'Experience & Achievements'}
+        {locale === 'zh' ? '经历' : 'Experience'}
       </h2>
       <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
         {locale === 'zh'

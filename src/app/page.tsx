@@ -10,9 +10,9 @@ export default function HomePage() {
     <>
       <HeroSection locale="zh" />
       <ResearchSection locale="zh" />
+      <BlogSection locale="zh" />
       <ProjectsSection locale="zh" />
       <ExperienceSection locale="zh" />
-      <BlogSection locale="zh" />
       <ContactSection locale="zh" />
     </>
   );

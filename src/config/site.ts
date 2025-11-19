@@ -12,10 +12,8 @@ export const siteConfig = {
   },
   qrcodes: {
     wechat: '/images/qrcodes/wechat-qr.png',
-    email: '/images/qrcodes/email-qr.png',
-    // 可选：公众号、小红书等
-    // officialAccount: '/images/qrcodes/official-account-qr.png',
-    // xiaohongshu: '/images/qrcodes/xiaohongshu-qr.png',
+    xiaohongshu: '/images/qrcodes/xiaohongshu-qr.png',
+    x: '/images/qrcodes/x-qr.png',
   }
 };
 

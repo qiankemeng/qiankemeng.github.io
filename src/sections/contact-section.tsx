@@ -12,7 +12,8 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
         socialMedia: '社交媒体',
         qrCodesTitle: '扫码联系',
         wechat: '微信',
-        emailQR: '邮箱',
+        xiaohongshu: '小红书',
+        x: 'X',
         scanToAdd: '扫码添加',
       }
     : {
@@ -22,7 +23,8 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
         socialMedia: 'Social Media',
         qrCodesTitle: 'Scan to Connect',
         wechat: 'WeChat',
-        emailQR: 'Email',
+        xiaohongshu: 'Xiaohongshu',
+        x: 'X',
         scanToAdd: 'Scan to add',
       };
 
@@ -101,10 +103,10 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
               <QrCode className="h-4 w-4" />
               {copy.qrCodesTitle}
             </h3>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-3 gap-4">
               {/* WeChat QR Code */}
-              <div className="rounded-lg border border-slate-200 bg-white p-4 text-center dark:border-slate-700 dark:bg-slate-800">
-                <div className="relative mx-auto aspect-square w-full max-w-[160px] overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-900">
+              <div className="rounded-lg border border-slate-200 bg-white p-3 text-center dark:border-slate-700 dark:bg-slate-800">
+                <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-900">
                   <Image
                     src={siteConfig.qrcodes.wechat}
                     alt={`${copy.wechat} QR Code`}
@@ -112,21 +114,35 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
                     className="object-contain"
                   />
                 </div>
-                <div className="mt-3 text-sm font-medium">{copy.wechat}</div>
+                <div className="mt-2 text-sm font-medium">{copy.wechat}</div>
                 <div className="text-xs text-slate-500 dark:text-slate-400">{copy.scanToAdd}</div>
               </div>
 
-              {/* Email QR Code */}
-              <div className="rounded-lg border border-slate-200 bg-white p-4 text-center dark:border-slate-700 dark:bg-slate-800">
-                <div className="relative mx-auto aspect-square w-full max-w-[160px] overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-900">
+              {/* Xiaohongshu QR Code */}
+              <div className="rounded-lg border border-slate-200 bg-white p-3 text-center dark:border-slate-700 dark:bg-slate-800">
+                <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-900">
                   <Image
-                    src={siteConfig.qrcodes.email}
-                    alt={`${copy.emailQR} QR Code`}
+                    src={siteConfig.qrcodes.xiaohongshu}
+                    alt={`${copy.xiaohongshu} QR Code`}
                     fill
                     className="object-contain"
                   />
                 </div>
-                <div className="mt-3 text-sm font-medium">{copy.emailQR}</div>
+                <div className="mt-2 text-sm font-medium">{copy.xiaohongshu}</div>
+                <div className="text-xs text-slate-500 dark:text-slate-400">{copy.scanToAdd}</div>
+              </div>
+
+              {/* X QR Code */}
+              <div className="rounded-lg border border-slate-200 bg-white p-3 text-center dark:border-slate-700 dark:bg-slate-800">
+                <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-lg bg-slate-100 dark:bg-slate-900">
+                  <Image
+                    src={siteConfig.qrcodes.x}
+                    alt={`${copy.x} QR Code`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="mt-2 text-sm font-medium">{copy.x}</div>
                 <div className="text-xs text-slate-500 dark:text-slate-400">{copy.scanToAdd}</div>
               </div>
             </div>

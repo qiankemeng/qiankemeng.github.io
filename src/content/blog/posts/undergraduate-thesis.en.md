@@ -1,92 +1,123 @@
 ---
-title: "Undergraduate Thesis: Knowledge-Augmented Multimodal QA"
+title: "Undergraduate Thesis: Analysis and Practice of PDE Solving Methods Based on Fourier Neural Operator"
 date: "2024-06-15"
-summary: "Introduces a knowledge-augmented instruction tuning pipeline for vision-language models, improving reasoning over open-domain scenes."
-tags: ["Multimodal LLM", "Vision-Language", "Knowledge Augmentation"]
+summary: "Research on deep learning methods for solving partial differential equations using Fourier Neural Operator (FNO), exploring a new data-driven paradigm for scientific computing."
+tags: ["Neural Operator", "PDE", "Scientific Computing", "Deep Learning"]
 ---
 
-# Knowledge-Augmented Multimodal QA Model
+# Analysis and Practice of PDE Solving Methods Based on Fourier Neural Operator
 
 **Type**: Undergraduate Thesis
 **Completion Date**: June 2024
 
 ## Background
 
-With the rapid development of multimodal large language models, enabling models to better understand and answer open-ended questions about real-world scenes has become a critical challenge. Traditional vision-language models are often limited by the coverage of their training data and perform poorly on questions requiring external knowledge. This research aims to enhance model reasoning and generalization through knowledge augmentation mechanisms.
+Partial Differential Equations (PDEs) are fundamental mathematical tools for describing natural phenomena and engineering problems, widely applied in fluid dynamics, electromagnetism, quantum mechanics, and more. While traditional numerical methods (e.g., finite element, finite difference) are mature, they incur high computational costs when dealing with high-dimensional problems, complex boundary conditions, or scenarios requiring numerous solutions.
 
-## Core Innovations
+In recent years, deep learning has brought new possibilities to scientific computing. The Fourier Neural Operator (FNO), as a novel operator learning method, can learn solution operators of PDEs in function spaces, achieving solving speeds several orders of magnitude faster than traditional methods.
 
-### 1. Multi-Channel Knowledge Enhancement Architecture
+## Core Content
 
-We designed a multi-channel knowledge fusion framework:
-- **Visual Knowledge Channel**: Extracts structured information such as scenes, objects, and attributes from images
-- **Textual Knowledge Channel**: Leverages large-scale knowledge graphs to obtain relevant entities and relations
-- **Commonsense Knowledge Channel**: Integrates commonsense reasoning knowledge bases to supplement implicit background knowledge
+### 1. Theoretical Analysis of Fourier Neural Operator
 
-### 2. Instruction Tuning Strategy
+In-depth study of FNO's mathematical principles:
+- **Operator Learning Framework**: Treating PDE solving as learning mappings from parameter space to solution space
+- **Fourier Layer Design**: Performing global convolution in frequency domain to capture long-range dependencies
+- **Resolution Invariance**: Can solve on grids of different resolutions after training
+- **Universal Approximation Theorem**: Theoretical guarantee that FNO can approximate arbitrary continuous operators
 
-Based on the Visual Instruction Tuning paradigm:
-- Constructed diverse instruction-answer datasets
-- Designed progressive training strategies from simple to complex
-- Introduced a hybrid mechanism of knowledge retrieval and generation
+### 2. Method Implementation and Optimization
 
-### 3. Knowledge Retrieval and Fusion
+Implemented a complete FNO framework:
+- **Architecture Design**: Multi-layer Fourier layers + activation functions + residual connections
+- **Frequency Truncation Strategy**: Retaining low-frequency modes to reduce computational complexity
+- **Training Techniques**: Data augmentation, learning rate scheduling, regularization methods
+- **Parallel Acceleration**: Leveraging FFT efficiency and GPU parallel computing
 
-Proposed an adaptive knowledge retrieval module:
-- Dynamically selects knowledge sources based on question types
-- Uses attention mechanisms to fuse multi-source knowledge
-- Designs knowledge confidence assessment to filter noisy information
+### 3. Solving Practice on Typical Equations
+
+Validated method effectiveness on multiple classic PDEs:
+
+#### Burgers Equation
+- One-dimensional nonlinear advection-diffusion equation
+- Testing generalization under varying viscosity coefficients
+- Relative error < 1%, inference speed improved by 1000+ times
+
+#### Navier-Stokes Equation
+- Two-dimensional incompressible fluid dynamics equation
+- Learning long-term evolution of turbulent patterns
+- Maintaining good performance at unseen Reynolds numbers
+
+#### Darcy Flow
+- Flow in porous media
+- Handling high-dimensional parameter spaces (permeability fields)
+- Achieving fast parameterized solutions
 
 ## Experimental Results
 
-Achieved leading performance on multiple multimodal QA and retrieval benchmarks:
+### Accuracy Comparison
+Compared with traditional numerical methods:
+- **Burgers Equation**: L2 error 0.8% vs traditional 0.5%
+- **Navier-Stokes**: Error < 3% at time T=10
+- **Darcy Flow**: Correlation coefficient > 0.98
 
-### QA Tasks
-- **VQA v2.0**: Achieved 78.3% accuracy
-- **OK-VQA**: Improved by 6.8 percentage points
-- **GQA**: Significant improvement on reasoning questions
+### Speed Advantage
+- **Post-training Inference**: < 0.1 seconds per solution (GPU)
+- **Traditional Methods**: Minutes to hours required
+- **Application Scenarios**: Parametric studies requiring numerous solutions, real-time simulation
 
-### Retrieval Tasks
-- **Flickr30K**: Image-text retrieval R@1 reached 82.1%
-- **COCO Caption**: Surpassed baseline models on multiple metrics
+### Generalization Capability
+- Resolution generalization: Solving at 2-4x training grid resolution
+- Parameter generalization: Maintaining reasonable accuracy beyond training parameter ranges
+- Equation family generalization: Quickly adapting to related equations with fine-tuning
 
-## Method Advantages
+## Advantages and Limitations
 
-1. **Effective Knowledge Enhancement**: External knowledge significantly improves model's ability to answer open-domain questions
-2. **Strong Interpretability**: Knowledge retrieval process is traceable, enhancing transparency of model decisions
-3. **Good Generalization**: Maintains strong performance on unseen question types
+### Advantages
+1. **Fast Solving**: Extremely fast inference speed after training, suitable for high-throughput computing
+2. **End-to-End Learning**: Automatically learns features without manual discretization schemes
+3. **Resolution Flexibility**: Can solve on different grids
+4. **Parallel-Friendly**: Naturally suitable for GPU acceleration
 
-## Technical Highlights
+### Limitations
+1. **Data Dependency**: Requires large amounts of training data (from traditional solvers or experiments)
+2. **Accuracy Gap**: Still inferior to traditional methods for high-precision requirements
+3. **Interpretability**: Black-box nature makes error analysis difficult
+4. **Boundary Conditions**: Complex boundary condition handling needs improvement
 
-### Data Construction
-- Integrated multiple public datasets to build large-scale instruction data
-- Designed automated pipeline to generate knowledge-augmented samples
-- Manual quality control and validation
+## Technical Implementation
 
-### Model Architecture
-- Built on pretrained models like CLIP and BLIP
-- Innovative knowledge fusion attention mechanism
-- End-to-end differentiable training framework
+### Code Framework
+- Complete training and inference pipeline based on PyTorch
+- Fast Fourier Transform using torch.fft
+- Unified interface supporting 1D, 2D, 3D problems
 
-### Evaluation System
-- Established comprehensive evaluation metrics
-- Includes multi-dimensional assessment: accuracy, fluency, knowledge relevance
-- Combined automatic and human evaluation
+### Data Generation
+- Training data generated using traditional solvers (FEniCS, FDM)
+- Latin hypercube sampling ensures parameter space coverage
+- Data augmentation: rotation, translation, scaling
+
+### Visualization Analysis
+- Spatiotemporal evolution visualization of solution fields
+- Error distribution heatmaps
+- Spectral analysis: comparing learned frequency domain weights
 
 ## Future Directions
 
-1. **Expand to More Modalities**: Explore fusion of audio, video, and other modalities
-2. **Enhance Real-time Performance**: Optimize knowledge retrieval efficiency for real-time QA
-3. **Continual Learning**: Research online learning mechanisms to continuously update knowledge base
-4. **Application Deployment**: Deploy in scenarios like intelligent assistants and education
+1. **Physics Embedding**: Incorporating physical constraints (conservation laws, symmetries) into networks
+2. **Multiscale Modeling**: Combining wavelet transforms for multiscale problems
+3. **Inverse Problem Solving**: For parameter inversion and data assimilation
+4. **Real Applications**: Deployment in weather forecasting and engineering optimization
 
-## Research Value
+## Research Significance
 
-This research provides new insights and methods for knowledge augmentation in multimodal large models, with significance in both theory and practice:
-- **Theoretical Level**: Explores effective fusion mechanisms between knowledge and multimodal representations
-- **Practical Level**: Validates method effectiveness on multiple public benchmarks
-- **Engineering Level**: Provides reproducible implementation solutions and code
+This thesis systematically analyzes the application of Fourier Neural Operator in PDE solving:
+- **Theoretical Level**: Deep understanding of the mathematical foundations of operator learning
+- **Practical Level**: Validated method effectiveness on multiple benchmark problems
+- **Application Level**: Provides new tools for data-driven scientific computing
+
+This research demonstrates the great potential of combining deep learning with traditional scientific computing, contributing methodologies and practical experience to the "AI for Science" field.
 
 ---
 
-**Keywords**: Multimodal LLM | Knowledge Augmentation | Vision-Language Understanding | Instruction Tuning
+**Keywords**: Fourier Neural Operator | Partial Differential Equations | Operator Learning | Scientific Computing | Deep Learning

@@ -48,11 +48,11 @@
     ]
   },
   {
-    "title": "Undergraduate Thesis: Knowledge-Augmented Multimodal QA",
+    "title": "Undergraduate Thesis: Analysis and Practice of PDE Solving Methods Based on Fourier Neural Operator",
     "year": "2024",
     "category": "Paper",
-    "summary": "Introduces a knowledge-augmented instruction tuning pipeline for vision-language models, improving reasoning over open-domain scenes and ranking at the top of multimodal retrieval and QA benchmarks.",
-    "tags": ["Multimodal LLM", "Vision-Language", "Knowledge Augmentation"],
+    "summary": "Research on deep learning methods for solving partial differential equations using Fourier Neural Operator (FNO), achieving a balance between high accuracy and efficiency on multiple classic PDE benchmarks, exploring a new data-driven paradigm for scientific computing.",
+    "tags": ["Neural Operator", "PDE", "Scientific Computing", "Deep Learning"],
     "links": [
       {
         "label": "Download PDF",

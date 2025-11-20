@@ -3,6 +3,8 @@
     "timeframe": "2024 - Present",
     "title": "Master's Student",
     "company": "Hangzhou Dianzi University",
+    "logo": "/images/logos/hdu.png",
+    "url": "https://www.hdu.edu.cn/",
     "highlights": [
       "Computer Technology",
       "Research focus on multimodal large models"
@@ -12,6 +14,8 @@
     "timeframe": "2020 - 2024",
     "title": "Bachelor's Degree",
     "company": "Henan University",
+    "logo": "/images/logos/henu.png",
+    "url": "https://www.henu.edu.cn/",
     "highlights": [
       "Computer Science and Technology",
       "Bachelor of Engineering"

@@ -33,8 +33,8 @@ export function ExperienceSection({ locale }: { locale: 'zh' | 'en' }) {
                     <Image
                       src={item.logo}
                       alt={`${item.company} logo`}
-                      width={48}
-                      height={48}
+                      width={64}
+                      height={64}
                       className="rounded-lg"
                     />
                   </Link>

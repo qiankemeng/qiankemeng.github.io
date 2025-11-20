@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Undergraduate Thesis: Knowledge-Augmented Multimodal QA",
+    "year": "2024",
+    "category": "Paper",
+    "summary": "Introduces a knowledge-augmented instruction tuning pipeline for vision-language models, improving reasoning over open-domain scenes and ranking at the top of multimodal retrieval and QA benchmarks.",
+    "tags": ["Multimodal LLM", "Vision-Language", "Knowledge Augmentation"],
+    "links": [
+      {
+        "label": "Download PDF",
+        "url": "/papers/qianke-undergraduate-thesis.pdf",
+        "type": "file"
+      }
+    ]
+  }
+]

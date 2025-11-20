@@ -10,8 +10,11 @@ const navItems = [
   { href: '#research', labelZh: '科研', labelEn: 'Research' },
   { href: '#projects', labelZh: '项目', labelEn: 'Projects' },
   { href: '#experience', labelZh: '经历', labelEn: 'Experience' },
-  { href: '#blog', labelZh: '博客', labelEn: 'Blog' },
   { href: '#contact', labelZh: '联系', labelEn: 'Contact' }
+];
+
+const pageNavItems = [
+  { href: '/blog', hrefEn: '/en/blog', labelZh: '博客', labelEn: 'Blog' }
 ];
 
 export function SiteHeader() {
@@ -29,6 +32,11 @@ export function SiteHeader() {
             <a key={item.href} href={item.href} className="hover:text-[var(--accent)]">
               {isEnglish ? item.labelEn : item.labelZh}
             </a>
+          ))}
+          {pageNavItems.map((item) => (
+            <Link key={item.href} href={isEnglish ? item.hrefEn : item.href} className="hover:text-[var(--accent)]">
+              {isEnglish ? item.labelEn : item.labelZh}
+            </Link>
           ))}
         </nav>
         <div className="flex items-center gap-2">

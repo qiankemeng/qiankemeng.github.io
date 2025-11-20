@@ -1,4 +1,3 @@
-import { BlogSection } from '@/sections/blog-section';
 import { ContactSection } from '@/sections/contact-section';
 import { ExperienceSection } from '@/sections/experience-section';
 import { HeroSection } from '@/sections/hero-section';
@@ -10,7 +9,6 @@ export default function HomePage() {
     <>
       <HeroSection locale="zh" />
       <ResearchSection locale="zh" />
-      <BlogSection locale="zh" />
       <ProjectsSection locale="zh" />
       <ExperienceSection locale="zh" />
       <ContactSection locale="zh" />

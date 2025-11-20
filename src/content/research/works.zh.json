@@ -1,5 +1,33 @@
 [
   {
+    "title": "VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding",
+    "year": "2024",
+    "category": "论文",
+    "summary": "提出基于层次化记忆的智能体推理框架，用于长视频理解任务。在多个长视频问答基准测试上取得显著提升。（CVPR 在投）",
+    "tags": ["视频理解", "智能体", "多模态", "长视频"],
+    "links": [
+      {
+        "label": "查看详情",
+        "url": "/blog",
+        "type": "link"
+      }
+    ]
+  },
+  {
+    "title": "江南古典园林的美学特征建模",
+    "year": "2024",
+    "category": "竞赛",
+    "summary": "基于数学建模方法分析江南古典园林的美学特征与空间布局规律。（中国研究生数学建模大赛国家一等奖）",
+    "tags": ["数学建模", "多模态", "美学分析"],
+    "links": [
+      {
+        "label": "查看详情",
+        "url": "/blog",
+        "type": "link"
+      }
+    ]
+  },
+  {
     "title": "本科毕业论文：知识增强的多模态问答模型",
     "year": "2024",
     "category": "论文",

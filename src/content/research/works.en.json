@@ -1,5 +1,33 @@
 [
   {
+    "title": "VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding",
+    "year": "2024",
+    "category": "Paper",
+    "summary": "Proposing an agentic reasoning framework with hierarchical memory for long-form video understanding. Achieved significant improvements on multiple long-form video QA benchmarks. (Under review at CVPR)",
+    "tags": ["Video Understanding", "Agents", "Multimodal", "Long Video"],
+    "links": [
+      {
+        "label": "View Details",
+        "url": "/en/blog",
+        "type": "link"
+      }
+    ]
+  },
+  {
+    "title": "Aesthetic Feature Modeling of Classical Jiangnan Gardens",
+    "year": "2024",
+    "category": "Contest",
+    "summary": "Mathematical modeling approach to analyze aesthetic features and spatial layout patterns of classical Jiangnan gardens. (National First Prize, China Graduate Mathematical Modeling Contest)",
+    "tags": ["Mathematical Modeling", "Multimodal", "Aesthetic Analysis"],
+    "links": [
+      {
+        "label": "View Details",
+        "url": "/en/blog",
+        "type": "link"
+      }
+    ]
+  },
+  {
     "title": "Undergraduate Thesis: Knowledge-Augmented Multimodal QA",
     "year": "2024",
     "category": "Paper",

@@ -66,11 +66,6 @@ export function ResearchSection({ locale }: { locale: 'zh' | 'en' }) {
             <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
               {locale === 'zh' ? '科研成果' : 'Research Output'}
             </h3>
-            <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
-              {locale === 'zh'
-                ? '持续整理论文、专利与实验记录，沉淀多模态研究路径。'
-                : 'Curated papers, patents, and experiment logs that track multimodal research progress.'}
-            </p>
           </div>
           <Link
             href={locale === 'zh' ? '/research' : '/en/research'}
@@ -80,7 +75,7 @@ export function ResearchSection({ locale }: { locale: 'zh' | 'en' }) {
           </Link>
         </div>
         <ul className="mt-6 grid gap-6 md:grid-cols-2">
-          {works.slice(0, 2).map((work) => (
+          {works.map((work) => (
             <li
               key={`${work.title}-${work.year}`}
               className="rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"

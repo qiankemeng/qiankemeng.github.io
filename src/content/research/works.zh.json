@@ -7,8 +7,18 @@
     "tags": ["视频理解", "智能体", "多模态", "长视频"],
     "links": [
       {
+        "label": "下载 PDF",
+        "url": "/papers/videoarm-paper.pdf",
+        "type": "file"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qiankemeng/VideoARM",
+        "type": "link"
+      },
+      {
         "label": "查看详情",
-        "url": "/blog",
+        "url": "/blog/videoarm-cvpr",
         "type": "link"
       }
     ]
@@ -21,8 +31,18 @@
     "tags": ["数学建模", "多模态", "美学分析"],
     "links": [
       {
+        "label": "下载 PDF",
+        "url": "/papers/jiangnan-garden-modeling.pdf",
+        "type": "file"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qiankemeng/jiangnan-garden-modeling",
+        "type": "link"
+      },
+      {
         "label": "查看详情",
-        "url": "/blog",
+        "url": "/blog/jiangnan-garden-modeling",
         "type": "link"
       }
     ]
@@ -38,6 +58,16 @@
         "label": "下载 PDF",
         "url": "/papers/qianke-undergraduate-thesis.pdf",
         "type": "file"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/qiankemeng/knowledge-augmented-multimodal-qa",
+        "type": "link"
+      },
+      {
+        "label": "查看详情",
+        "url": "/blog/undergraduate-thesis",
+        "type": "link"
       }
     ]
   }

@@ -113,7 +113,9 @@ export function ResearchSection({ locale }: { locale: 'zh' | 'en' }) {
           </Link>
         </div>
         <ul className="mt-6 grid gap-6 md:grid-cols-2">
-          {works.map((work) => (
+          {works
+            .filter((work) => !work.title.includes('本科毕业论文') && !work.title.includes('Undergraduate Thesis'))
+            .map((work) => (
             <li
               key={`${work.title}-${work.year}`}
               className="rounded-2xl border border-slate-200 bg-white/80 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/70"

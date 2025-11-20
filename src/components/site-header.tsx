@@ -20,6 +20,7 @@ const pageNavItems = [
 export function SiteHeader() {
   const pathname = usePathname();
   const isEnglish = pathname?.startsWith('/en');
+  const isHomePage = pathname === '/' || pathname === '/en';
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-[var(--background)]/80 backdrop-blur">
@@ -29,9 +30,13 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium sm:flex">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="hover:text-[var(--accent)]">
+            <Link
+              key={item.href}
+              href={isHomePage ? item.href : (isEnglish ? `/en${item.href}` : item.href)}
+              className="hover:text-[var(--accent)]"
+            >
               {isEnglish ? item.labelEn : item.labelZh}
-            </a>
+            </Link>
           ))}
           {pageNavItems.map((item) => (
             <Link key={item.href} href={isEnglish ? item.hrefEn : item.href} className="hover:text-[var(--accent)]">

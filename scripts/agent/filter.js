@@ -5,6 +5,7 @@
 
 import OpenAI from 'openai';
 import { apiConfig, modelConfig, filterConfig } from './config.js';
+import { retryWithBackoff } from './retry-utils.js';
 
 // 初始化OpenAI客户端
 const openai = new OpenAI({
@@ -76,7 +77,7 @@ ${papers.map((p, i) => `
 }
 
 /**
- * 使用AI筛选论文
+ * 使用AI筛选论文（带重试）
  */
 export async function filterPapers(papers) {
   if (papers.length === 0) {
@@ -87,25 +88,38 @@ export async function filterPapers(papers) {
   console.log(`\n🤖 使用 ${modelConfig.filter.model} 筛选 ${papers.length} 篇论文...`);
 
   try {
-    const response = await openai.chat.completions.create({
-      model: modelConfig.filter.model,
-      messages: [
-        {
-          role: 'system',
-          content: '你是一个专业的AI研究论文筛选助手，专注于视频理解、多模态大模型和AI Agent领域。你的任务是快速准确地识别高质量的相关论文。'
-        },
-        {
-          role: 'user',
-          content: buildFilterPrompt(papers)
+    // 使用重试包装API调用
+    const response = await retryWithBackoff(
+      async () => {
+        return await openai.chat.completions.create({
+          model: modelConfig.filter.model,
+          messages: [
+            {
+              role: 'system',
+              content: '你是一个专业的AI研究论文筛选助手，专注于视频理解、多模态大模型和AI Agent领域。你的任务是快速准确地识别高质量的相关论文。'
+            },
+            {
+              role: 'user',
+              content: buildFilterPrompt(papers)
+            }
+          ],
+          temperature: modelConfig.filter.temperature,
+          max_tokens: modelConfig.filter.maxTokens,
+          top_p: modelConfig.filter.topP,
+          frequency_penalty: modelConfig.filter.frequencyPenalty,
+          presence_penalty: modelConfig.filter.presencePenalty,
+          response_format: { type: 'json_object' }
+        });
+      },
+      {
+        maxRetries: apiConfig.openai.maxRetries,
+        baseDelay: 2000,  // 2秒基础延迟
+        maxDelay: 30000,  // 最多30秒
+        onRetry: (attempt, error) => {
+          console.log(`🔄 筛选API重试中 (${attempt + 1}/${apiConfig.openai.maxRetries})...`);
         }
-      ],
-      temperature: modelConfig.filter.temperature,
-      max_tokens: modelConfig.filter.maxTokens,
-      top_p: modelConfig.filter.topP,
-      frequency_penalty: modelConfig.filter.frequencyPenalty,
-      presence_penalty: modelConfig.filter.presencePenalty,
-      response_format: { type: 'json_object' }
-    });
+      }
+    );
 
     const result = JSON.parse(response.choices[0].message.content);
 

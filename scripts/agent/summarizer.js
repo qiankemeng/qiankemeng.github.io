@@ -5,6 +5,7 @@
 
 import OpenAI from 'openai';
 import { apiConfig, modelConfig, summarizeConfig } from './config.js';
+import { retryWithBackoff } from './retry-utils.js';
 
 // 初始化OpenAI客户端
 const openai = new OpenAI({
@@ -82,30 +83,44 @@ ${paper.filterReason ? `**筛选理由**: ${paper.filterReason}` : ''}
 }
 
 /**
- * 使用AI总结单篇论文
+ * 使用AI总结单篇论文（带重试）
  */
 export async function summarizePaper(paper) {
   console.log(`\n📝 总结论文: ${paper.title}...`);
 
   try {
-    const response = await openai.chat.completions.create({
-      model: modelConfig.summarize.model,
-      messages: [
-        {
-          role: 'system',
-          content: '你是一个专业的AI研究论文分析师，擅长用清晰易懂的中文总结视频理解、多模态和AI Agent相关的论文。你的总结既要保持学术严谨性，又要通俗易懂。'
-        },
-        {
-          role: 'user',
-          content: buildSummarizePrompt(paper)
+    // 使用重试包装API调用
+    const response = await retryWithBackoff(
+      async () => {
+        return await openai.chat.completions.create({
+          model: modelConfig.summarize.model,
+          messages: [
+            {
+              role: 'system',
+              content: '你是一个专业的AI研究论文分析师，擅长用清晰易懂的中文总结视频理解、多模态和AI Agent相关的论文。你的总结既要保持学术严谨性，又要通俗易懂。'
+            },
+            {
+              role: 'user',
+              content: buildSummarizePrompt(paper)
+            }
+          ],
+          temperature: modelConfig.summarize.temperature,
+          max_tokens: modelConfig.summarize.maxTokens,
+          top_p: modelConfig.summarize.topP,
+          frequency_penalty: modelConfig.summarize.frequencyPenalty,
+          presence_penalty: modelConfig.summarize.presencePenalty,
+        });
+      },
+      {
+        maxRetries: apiConfig.openai.maxRetries,
+        baseDelay: 3000,  // 3秒基础延迟（总结更慢）
+        maxDelay: 60000,  // 最多60秒
+        onRetry: (attempt, error) => {
+          console.log(`🔄 总结API重试中 (${attempt + 1}/${apiConfig.openai.maxRetries})...`);
+          console.log(`   错误: ${error.message}`);
         }
-      ],
-      temperature: modelConfig.summarize.temperature,
-      max_tokens: modelConfig.summarize.maxTokens,
-      top_p: modelConfig.summarize.topP,
-      frequency_penalty: modelConfig.summarize.frequencyPenalty,
-      presence_penalty: modelConfig.summarize.presencePenalty,
-    });
+      }
+    );
 
     const summary = response.choices[0].message.content;
 
@@ -177,22 +192,35 @@ Please structure the summary as:
 Use clear, professional English suitable for AI researchers.`;
 
   try {
-    const response = await openai.chat.completions.create({
-      model: modelConfig.summarize.model,
-      messages: [
-        {
-          role: 'system',
-          content: 'You are an AI research paper analyst specializing in video understanding, multimodal models, and AI agents.'
-        },
-        {
-          role: 'user',
-          content: prompt
+    // 使用重试包装API调用
+    const response = await retryWithBackoff(
+      async () => {
+        return await openai.chat.completions.create({
+          model: modelConfig.summarize.model,
+          messages: [
+            {
+              role: 'system',
+              content: 'You are an AI research paper analyst specializing in video understanding, multimodal models, and AI agents.'
+            },
+            {
+              role: 'user',
+              content: prompt
+            }
+          ],
+          temperature: modelConfig.summarize.temperature,
+          max_tokens: 2000,
+          top_p: modelConfig.summarize.topP,
+        });
+      },
+      {
+        maxRetries: apiConfig.openai.maxRetries,
+        baseDelay: 3000,
+        maxDelay: 60000,
+        onRetry: (attempt) => {
+          console.log(`🔄 英文总结API重试中 (${attempt + 1}/${apiConfig.openai.maxRetries})...`);
         }
-      ],
-      temperature: modelConfig.summarize.temperature,
-      max_tokens: 2000,
-      top_p: modelConfig.summarize.topP,
-    });
+      }
+    );
 
     const summary_en = response.choices[0].message.content;
     console.log(`✅ 英文总结完成`);

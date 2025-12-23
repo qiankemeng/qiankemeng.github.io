@@ -235,8 +235,8 @@ ${metadata.summary}
 `;
     };
 
-    // Create files
-    const postsDir = path.join(__dirname, '..', 'src', 'content', 'blog', 'posts', 'papers');
+    // Create files (AI curated papers go to daily-papers directory)
+    const postsDir = path.join(__dirname, '..', 'src', 'content', 'blog', 'posts', 'daily-papers');
     if (!fs.existsSync(postsDir)) {
       fs.mkdirSync(postsDir, { recursive: true });
     }

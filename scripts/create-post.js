@@ -21,15 +21,19 @@ function question(query) {
 }
 
 const categories = {
-  '1': 'papers',
-  '2': 'notes',
-  '3': 'tutorials'
+  '1': 'research',
+  '2': 'daily-papers',
+  '3': 'tutorials',
+  '4': 'notes',
+  '5': 'others'
 };
 
 const categoryLabels = {
-  papers: '研究论文 (Research Papers)',
-  notes: '学习笔记 (Learning Notes)',
-  tutorials: '技术教程 (Tutorials)'
+  research: '我的研究 (My Research)',
+  'daily-papers': 'AI精选论文 (AI Curated Papers)',
+  tutorials: '技术教程 (Tutorials)',
+  notes: '学习笔记 (Notes)',
+  others: '杂项 (Others)'
 };
 
 async function main() {
@@ -45,10 +49,12 @@ async function main() {
 
   // Get category
   console.log('\n选择分类 / Select Category:');
-  console.log('1. 研究论文 (Research Papers)');
-  console.log('2. 学习笔记 (Learning Notes)');
+  console.log('1. 我的研究 (My Research)');
+  console.log('2. AI精选论文 (AI Curated Papers) - 仅供AI Agent使用');
   console.log('3. 技术教程 (Tutorials)');
-  const categoryChoice = await question('选择 (1-3): ');
+  console.log('4. 学习笔记 (Notes)');
+  console.log('5. 杂项 (Others)');
+  const categoryChoice = await question('选择 (1-5): ');
   const category = categories[categoryChoice];
 
   if (!category) {

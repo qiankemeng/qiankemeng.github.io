@@ -52,12 +52,12 @@ function getCategoryFromPath(filePath: string): BlogCategory {
 
   if (parts.length > 1) {
     const category = parts[0];
-    if (['papers', 'notes', 'tutorials'].includes(category)) {
+    if (['research', 'daily-papers', 'tutorials', 'notes', 'others'].includes(category)) {
       return category as BlogCategory;
     }
   }
 
-  return 'notes'; // Default category
+  return 'others'; // Default category
 }
 
 /**
@@ -306,17 +306,20 @@ export function getAllYears(locale: 'zh' | 'en'): number[] {
 }
 
 /**
- * Get all unique venues from papers
+ * Get all unique venues from research papers and AI curated papers
  */
 export function getAllVenues(locale: 'zh' | 'en'): string[] {
-  const posts = getPostsByCategory('papers', locale);
+  const allPosts = getAllPosts(locale);
   const venues = new Set<string>();
 
-  posts.forEach((post) => {
-    if (post.venue) {
-      venues.add(post.venue);
-    }
-  });
+  // Get venues from both research and daily-papers categories
+  allPosts
+    .filter((post) => post.category === 'research' || post.category === 'daily-papers')
+    .forEach((post) => {
+      if (post.venue) {
+        venues.add(post.venue);
+      }
+    });
 
   return Array.from(venues).sort();
 }

@@ -10,7 +10,10 @@
       "Bash(npm install:*)",
       "Bash(gh repo edit:*)",
       "Bash(git rm:*)",
-      "Bash(sips:*)"
+      "Bash(sips:*)",
+      "Bash(find:*)",
+      "Bash(chmod:*)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": []

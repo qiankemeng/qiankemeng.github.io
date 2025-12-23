@@ -62,6 +62,13 @@ graph LR
     ├── fetch-papers.yml          # 主工作流
     └── manual-trigger.yml        # 手动触发（测试用）
 
+src/content/blog/posts/
+├── research/                     # 我的研究论文
+├── daily-papers/                 # AI自动推送 ⭐
+├── tutorials/                    # 技术教程
+├── notes/                        # 学习笔记
+└── others/                       # 杂项
+
 scripts/
 ├── agent/
 │   ├── fetcher.js               # 获取论文
@@ -254,10 +261,23 @@ pdf: "${paper.pdfUrl}"
 # ${paper.title}
 
 > 📄 论文链接: [arXiv](${paper.arxivUrl})
+> 🤖 本文由AI自动筛选和总结
 
 ## AI 生成摘要
 
 ${summary}
+
+## 核心创新
+
+[AI 总结的核心创新点]
+
+## 方法概述
+
+[AI 总结的方法]
+
+## 个人点评
+
+> 💡 这篇论文值得关注的原因：[AI 生成的推荐理由]
 
 ## 原始摘要
 
@@ -265,12 +285,13 @@ ${paper.summary}
 
 ---
 
-*本文由AI agent自动筛选和总结，请以原论文为准。*
+*本文由AI agent自动生成，内容仅供参考，详细信息请查看原论文。*
 `;
 
+  // AI推送的论文统一放到 daily-papers 目录
   const filePath = path.join(
     __dirname,
-    '../../src/content/blog/posts/papers',
+    '../../src/content/blog/posts/daily-papers',
     `${slug}.zh.md`
   );
 
@@ -293,25 +314,29 @@ module.exports = {
     'cs.CL',  // Computation and Language
   ],
 
-  // 筛选标准
+  // 筛选标准（聚焦视频问答、MLLM、Agent）
   filterCriteria: {
     keywords: [
-      '多模态', 'multimodal',
+      '视频问答', 'video question answering', 'video QA',
+      '多模态大模型', 'multimodal large language model', 'MLLM',
+      '智能体', 'agent', 'agentic',
       '视频理解', 'video understanding',
-      '大模型', 'large language model',
-      '智能体', 'agent'
+      '长视频', 'long video'
     ],
 
     excludeKeywords: [
-      'medical', '医疗',  // 排除医疗领域
-      'finance', '金融'   // 排除金融领域
+      'medical', '医疗',    // 排除医疗领域
+      'finance', '金融',    // 排除金融领域
+      'game', '游戏',       // 排除游戏领域
+      'robotics', '机器人'  // 排除机器人（除非与视频相关）
     ],
 
     minCitationPotential: 'high',  // AI评估引用潜力
 
     venues: [
-      'CVPR', 'ICCV', 'ECCV',
-      'NeurIPS', 'ICML', 'ICLR'
+      'CVPR', 'ICCV', 'ECCV',  // CV顶会
+      'NeurIPS', 'ICML', 'ICLR',  // ML顶会
+      'ACL', 'EMNLP'  // NLP顶会（多模态）
     ]
   },
 

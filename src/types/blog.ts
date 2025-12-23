@@ -3,7 +3,13 @@ import { z } from 'zod';
 /**
  * Blog post categories
  */
-export const BlogCategoryEnum = z.enum(['papers', 'notes', 'tutorials']);
+export const BlogCategoryEnum = z.enum([
+  'research',      // 我的研究论文
+  'daily-papers',  // AI自动推送的论文
+  'tutorials',     // 技术教程
+  'notes',         // 学习笔记
+  'others'         // 杂项
+]);
 export type BlogCategory = z.infer<typeof BlogCategoryEnum>;
 
 /**

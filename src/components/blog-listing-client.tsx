@@ -10,9 +10,11 @@ interface BlogCardProps {
 }
 
 const categoryLabels: Record<BlogCategory, { zh: string; en: string }> = {
-  papers: { zh: '论文', en: 'Paper' },
-  notes: { zh: '笔记', en: 'Note' },
-  tutorials: { zh: '教程', en: 'Tutorial' }
+  research: { zh: '我的研究', en: 'My Research' },
+  'daily-papers': { zh: 'AI精选', en: 'AI Curated' },
+  tutorials: { zh: '技术教程', en: 'Tutorials' },
+  notes: { zh: '学习笔记', en: 'Notes' },
+  others: { zh: '杂项', en: 'Others' }
 };
 
 function BlogCard({ post, locale }: BlogCardProps) {
@@ -40,7 +42,7 @@ function BlogCard({ post, locale }: BlogCardProps) {
       </h2>
 
       {/* Paper-specific metadata */}
-      {post.category === 'papers' && (
+      {(post.category === 'research' || post.category === 'daily-papers') && (
         <div className="mt-2 flex flex-wrap gap-2 text-sm text-slate-600 dark:text-slate-400">
           {post.venue && (
             <span className="font-medium text-blue-600 dark:text-blue-400">
@@ -72,7 +74,7 @@ function BlogCard({ post, locale }: BlogCardProps) {
       </div>
 
       {/* Paper links */}
-      {post.category === 'papers' && (
+      {(post.category === 'research' || post.category === 'daily-papers') && (
         <div className="mt-4 flex flex-wrap gap-3 text-xs">
           {post.pdf && (
             <a
@@ -208,9 +210,11 @@ export default function BlogListingClient({
 
   const categoryLabelsAll: Record<BlogCategory | 'all', { zh: string; en: string }> = {
     all: { zh: '全部', en: 'All' },
-    papers: { zh: '论文', en: 'Papers' },
-    notes: { zh: '笔记', en: 'Notes' },
-    tutorials: { zh: '教程', en: 'Tutorials' }
+    research: { zh: '我的研究', en: 'My Research' },
+    'daily-papers': { zh: 'AI精选', en: 'AI Curated' },
+    tutorials: { zh: '技术教程', en: 'Tutorials' },
+    notes: { zh: '学习笔记', en: 'Notes' },
+    others: { zh: '杂项', en: 'Others' }
   };
 
   return (
@@ -287,7 +291,7 @@ export default function BlogListingClient({
                 {locale === 'zh' ? '分类' : 'Category'}
               </label>
               <div className="flex flex-wrap gap-2">
-                {(['all', 'papers', 'notes', 'tutorials'] as const).map((cat) => (
+                {(['all', 'research', 'daily-papers', 'tutorials', 'notes', 'others'] as const).map((cat) => (
                   <button
                     key={cat}
                     onClick={() => updateFilter('category', cat === 'all' ? null : cat)}
@@ -325,7 +329,7 @@ export default function BlogListingClient({
             )}
 
             {/* Venue Filter */}
-            {allVenues.length > 0 && currentCategory === 'papers' && (
+            {allVenues.length > 0 && (currentCategory === 'research' || currentCategory === 'daily-papers') && (
               <div>
                 <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                   {locale === 'zh' ? '会议/期刊' : 'Venue'}

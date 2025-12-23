@@ -1,0 +1,13 @@
+{
+  "name": "blog-agent-scripts",
+  "version": "1.0.0",
+  "description": "AI agent scripts for auto-curating papers",
+  "type": "module",
+  "scripts": {
+    "agent": "node agent/main.js"
+  },
+  "dependencies": {
+    "openai": "^4.67.3",
+    "xml2js": "^0.6.2"
+  }
+}

@@ -13,10 +13,12 @@ This is a bilingual (Chinese/English) personal homepage built with Next.js, show
 npm run dev           # Start development server
 npm run build         # Build static site (outputs to ./out)
 npm run start         # Start production server
-npm run lint          # Run ESLint
+npm run lint          # Run ESLInt
 npm run export        # Build static export (alias for build)
 npm run create-post   # Create new blog post interactively
 npm run import-paper  # Import paper from arXiv
+npm run agent         # Run AI paper curation agent (requires OPENAI_API_KEY)
+npm run agent:test    # Test arXiv fetcher
 ```
 
 ## Architecture

@@ -10,11 +10,13 @@ This is a bilingual (Chinese/English) personal homepage built with Next.js, show
 
 ### Development
 ```bash
-npm run dev        # Start development server
-npm run build      # Build static site (outputs to ./out)
-npm run start      # Start production server
-npm run lint       # Run ESLint
-npm run export     # Build static export (alias for build)
+npm run dev           # Start development server
+npm run build         # Build static site (outputs to ./out)
+npm run start         # Start production server
+npm run lint          # Run ESLint
+npm run export        # Build static export (alias for build)
+npm run create-post   # Create new blog post interactively
+npm run import-paper  # Import paper from arXiv
 ```
 
 ## Architecture
@@ -57,21 +59,50 @@ All content is stored in JSON files under `src/content/` with separate files for
 Sections import and render content based on the locale prop.
 
 ### Blog System
-Blog posts are written in MDX (Markdown with JSX support) and stored in `src/content/blog/posts/`:
-- File naming: `{slug}.{locale}.md` (e.g., `multimodal-lab-notes-2024.zh.md`)
-- Frontmatter format using gray-matter:
-  ```yaml
-  ---
-  title: "Post Title"
-  date: "YYYY-MM-DD"
-  summary: "Brief description"
-  tags: ["tag1", "tag2"]
-  ---
-  ```
-- Helper functions in `src/lib/blog.ts`:
-  - `getAllPosts(locale)`: Get all posts metadata for a locale
-  - `getPostBySlug(slug, locale)`: Get full post content
-  - `getAllPostSlugs()`: Get all unique slugs for static generation
+Blog posts are written in MDX (Markdown with JSX support) and organized by category in `src/content/blog/posts/`:
+
+**Directory Structure**:
+```
+src/content/blog/posts/
+├── papers/        # Research papers
+├── notes/         # Learning notes
+└── tutorials/     # Technical tutorials
+```
+
+**File Naming**: `{slug}.{locale}.md` (e.g., `videoarm-cvpr.zh.md`)
+
+**Frontmatter Format** (with Zod validation):
+```yaml
+---
+title: "Post Title"
+date: "YYYY-MM-DD"
+summary: "Brief description"
+tags: ["tag1", "tag2"]
+category: "papers"  # Auto-detected from directory
+
+# Paper-specific fields (optional)
+venue: "CVPR 2025"
+status: "published"
+authors:
+  - name: "Author Name"
+    affiliation: "Institution"
+arxiv: "https://arxiv.org/abs/..."
+pdf: "/papers/paper.pdf"
+github: "https://github.com/..."
+---
+```
+
+**Helper Functions in `src/lib/blog.ts`**:
+- `getAllPosts(locale)`: Get all posts with metadata
+- `getPostsByCategory(category, locale)`: Get posts by category
+- `getFilteredPosts(locale, options)`: Get filtered and paginated posts
+- `getPostBySlug(slug, locale)`: Get full post content
+- `getAllPostSlugs()`: Get all unique slugs for static generation
+- `getAllTags(locale)`: Get all unique tags
+- `getAllYears(locale)`: Get all publication years
+- `getAllVenues(locale)`: Get all conferences/journals
+- `getRecentPosts(locale, limit)`: Get latest N posts
+- `getRelatedPosts(slug, locale, limit)`: Get related posts by tags
 
 MDX processing pipeline:
 - **remark-gfm**: GitHub Flavored Markdown support (tables, task lists, etc.)

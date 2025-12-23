@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/blog';
+import { getRecentPosts } from '@/lib/blog';
 import Link from 'next/link';
 
 function formatDate(date: string, locale: 'zh' | 'en') {
@@ -10,7 +10,7 @@ function formatDate(date: string, locale: 'zh' | 'en') {
 }
 
 export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
-  const posts = getAllPosts(locale);
+  const posts = getRecentPosts(locale, 2);
 
   return (
     <section id="blog" className="py-16">
@@ -25,10 +25,10 @@ export function BlogSection({ locale }: { locale: 'zh' | 'en' }) {
         </Link>
       </div>
       <ul className="grid gap-6 md:grid-cols-2">
-        {posts.slice(0, 2).map((post) => (
+        {posts.map((post) => (
           <Link
             key={post.slug}
-            href={locale === 'zh' ? '/blog' : '/en/blog'}
+            href={locale === 'zh' ? `/blog/${post.slug}` : `/en/blog/${post.slug}`}
             className="block rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/60"
           >
             <time className="text-xs uppercase tracking-wide text-slate-400">

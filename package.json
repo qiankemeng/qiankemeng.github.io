@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build"
+    "export": "next build",
+    "create-post": "node scripts/create-post.js",
+    "import-paper": "node scripts/import-paper.js"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
@@ -22,7 +24,8 @@
     "rehype-autolink-headings": "^7.1.0",
     "rehype-highlight": "^7.0.2",
     "rehype-slug": "^6.0.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "@tailwindcss/typography": "0.5.10",

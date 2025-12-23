@@ -17,62 +17,70 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  try {
-    const post = getPostBySlug(params.slug, 'en');
-    return {
-      title: post.title,
-      description: post.summary
-    };
-  } catch {
+  const post = getPostBySlug(params.slug, 'en');
+
+  if (!post) {
     return {
       title: 'Post Not Found'
     };
   }
+
+  return {
+    title: post.title,
+    description: post.summary,
+    openGraph: {
+      title: post.title,
+      description: post.summary,
+      type: 'article',
+      publishedTime: post.date
+    }
+  };
 }
 
 export default function BlogPostEn({ params }: Props) {
-  try {
-    const post = getPostBySlug(params.slug, 'en');
+  const post = getPostBySlug(params.slug, 'en');
 
-    return (
-      <article className="py-16">
-        <header className="mb-8 border-b border-slate-200 pb-8 dark:border-slate-700">
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">
-            {post.title}
-          </h1>
-          <div className="mt-4 flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
-            <time dateTime={post.date}>{post.date}</time>
-          </div>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </header>
-        <div className="prose prose-slate dark:prose-invert max-w-none">
-          <MDXRemote
-            source={post.content}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-                rehypePlugins: [
-                  rehypeHighlight,
-                  rehypeSlug,
-                  [rehypeAutolinkHeadings, { behavior: 'wrap' }]
-                ]
-              }
-            }}
-          />
-        </div>
-        <CommentsSection locale="en" />
-      </article>
-    );
-  } catch {
+  if (!post) {
     notFound();
   }
+
+  return (
+    <article className="py-16">
+      <header className="mb-8 border-b border-slate-200 pb-8 dark:border-slate-700">
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-100">
+          {post.title}
+        </h1>
+        <div className="mt-4 flex items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+          <time dateTime={post.date}>{post.date}</time>
+          {post.readingTime && <span>• {post.readingTime} min read</span>}
+        </div>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {post.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600 dark:bg-slate-800 dark:text-slate-300"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </header>
+      <div className="prose prose-slate dark:prose-invert max-w-none">
+        <MDXRemote
+          source={post.content}
+          options={{
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+              rehypePlugins: [
+                rehypeHighlight,
+                rehypeSlug,
+                [rehypeAutolinkHeadings, { behavior: 'wrap' }]
+              ]
+            }
+          }}
+        />
+      </div>
+      <CommentsSection locale="en" />
+    </article>
+  );
 }

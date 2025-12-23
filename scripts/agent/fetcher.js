@@ -5,7 +5,7 @@
 
 import https from 'https';
 import xml2js from 'xml2js';
-import { config } from './config.js';
+import { arxivConfig, categoryMap } from './config.js';
 
 /**
  * 发起HTTPS请求
@@ -69,8 +69,8 @@ export async function fetchTodayPapers() {
   console.log('📥 正在从 arXiv 获取今日更新的论文...');
 
   // 构建查询URL - 获取最近24小时内提交或更新的论文
-  const query = encodeURIComponent(config.arxiv.searchQuery);
-  const url = `${config.arxiv.apiBaseUrl}?search_query=${query}&start=0&max_results=${config.arxiv.maxResults}&sortBy=submittedDate&sortOrder=descending`;
+  const query = encodeURIComponent(arxivConfig.searchQuery);
+  const url = `${arxivConfig.apiBaseUrl}?search_query=${query}&start=0&max_results=${arxivConfig.maxResults}&sortBy=submittedDate&sortOrder=descending`;
 
   console.log(`🔍 查询URL: ${url}`);
 
@@ -108,7 +108,7 @@ export async function fetchPaperById(arxivId) {
   console.log(`📥 获取论文元数据: ${arxivId}`);
 
   const cleanId = arxivId.replace('https://arxiv.org/abs/', '').replace('arxiv:', '');
-  const url = `${config.arxiv.apiBaseUrl}?id_list=${cleanId}`;
+  const url = `${arxivConfig.apiBaseUrl}?id_list=${cleanId}`;
 
   try {
     const xml = await httpsGet(url);

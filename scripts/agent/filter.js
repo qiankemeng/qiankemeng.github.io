@@ -4,19 +4,23 @@
  */
 
 import OpenAI from 'openai';
-import { config } from './config.js';
+import { apiConfig, modelConfig, filterConfig } from './config.js';
 
 // 初始化OpenAI客户端
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: apiConfig.openai.apiKey,
+  baseURL: apiConfig.openai.baseURL,
+  organization: apiConfig.openai.organization,
+  timeout: apiConfig.openai.timeout,
+  maxRetries: apiConfig.openai.maxRetries,
 });
 
 /**
  * 构建筛选prompt
  */
 function buildFilterPrompt(papers) {
-  const includeKeywords = config.filter.includeKeywords.join(', ');
-  const excludeKeywords = config.filter.excludeKeywords.join(', ');
+  const includeKeywords = filterConfig.includeKeywords.join(', ');
+  const excludeKeywords = filterConfig.excludeKeywords.join(', ');
 
   return `你是一个AI研究助手，专注于视频理解、多模态大模型(MLLM)和AI Agent领域。
 
@@ -47,7 +51,7 @@ ${papers.map((p, i) => `
 
 ## 输出要求
 
-请以JSON格式返回筛选结果，只包含评分 >= ${config.filter.minRelevanceScore} 的论文：
+请以JSON格式返回筛选结果，只包含评分 >= ${filterConfig.minRelevanceScore} 的论文：
 
 \`\`\`json
 {
@@ -80,11 +84,11 @@ export async function filterPapers(papers) {
     return [];
   }
 
-  console.log(`\n🤖 使用 ${config.ai.filterModel} 筛选 ${papers.length} 篇论文...`);
+  console.log(`\n🤖 使用 ${modelConfig.filter.model} 筛选 ${papers.length} 篇论文...`);
 
   try {
     const response = await openai.chat.completions.create({
-      model: config.ai.filterModel,
+      model: modelConfig.filter.model,
       messages: [
         {
           role: 'system',
@@ -95,7 +99,11 @@ export async function filterPapers(papers) {
           content: buildFilterPrompt(papers)
         }
       ],
-      temperature: config.ai.temperature,
+      temperature: modelConfig.filter.temperature,
+      max_tokens: modelConfig.filter.maxTokens,
+      top_p: modelConfig.filter.topP,
+      frequency_penalty: modelConfig.filter.frequencyPenalty,
+      presence_penalty: modelConfig.filter.presencePenalty,
       response_format: { type: 'json_object' }
     });
 
@@ -135,8 +143,10 @@ export async function filterPapers(papers) {
 /**
  * 批量筛选（处理大量论文时分批进行）
  */
-export async function filterPapersBatch(papers, batchSize = 20) {
+export async function filterPapersBatch(papers) {
+  const batchSize = filterConfig.batchSize;
   const batches = [];
+
   for (let i = 0; i < papers.length; i += batchSize) {
     batches.push(papers.slice(i, i + batchSize));
   }
@@ -158,7 +168,8 @@ export async function filterPapersBatch(papers, batchSize = 20) {
 
   // 按评分排序并返回前N篇
   allSelected.sort((a, b) => b.filterScore - a.filterScore);
-  const topPapers = allSelected.slice(0, config.output.maxPapersPerDay);
+  const maxPapers = filterConfig.maxPapersPerDay || 5;
+  const topPapers = allSelected.slice(0, maxPapers);
 
   console.log(`\n✅ 总计筛选出 ${allSelected.length} 篇论文`);
   console.log(`📌 选择评分最高的 ${topPapers.length} 篇进行总结\n`);

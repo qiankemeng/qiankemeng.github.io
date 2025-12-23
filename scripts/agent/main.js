@@ -9,13 +9,23 @@ import { fetchTodayPapers } from './fetcher.js';
 import { filterPapersBatch } from './filter.js';
 import { summarizePapers, generateEnglishSummary } from './summarizer.js';
 import { savePapersAsMarkdown, generateReport } from './generator.js';
-import { config } from './config.js';
+import { validateConfig, printConfig, outputConfig, summarizeConfig, loggingConfig } from './config.js';
 
 /**
  * 主函数
  */
 async function main() {
   console.log('🚀 AI Agent 启动...\n');
+
+  // 验证配置
+  if (!validateConfig()) {
+    console.error('\n❌ 配置验证失败，请检查环境变量');
+    process.exit(1);
+  }
+
+  // 打印当前配置
+  printConfig();
+
   console.log('=' .repeat(60));
   console.log('📅 运行时间:', new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' }));
   console.log('🎯 目标: 自动筛选和总结视频理解相关论文');
@@ -55,7 +65,7 @@ async function main() {
     }
 
     // 步骤4: 生成英文版本（可选）
-    if (config.output.generateEnglishVersion) {
+    if (outputConfig.generateEnglishVersion) {
       console.log('\n🌍 步骤 4/5: 生成英文版本');
       console.log('-'.repeat(60));
 
@@ -101,7 +111,7 @@ async function main() {
     }
 
     // 输出详细报告（可选）
-    if (config.logging.enabled) {
+    if (loggingConfig.enabled) {
       console.log('\n--- 详细报告 ---\n');
       console.log(report);
     }

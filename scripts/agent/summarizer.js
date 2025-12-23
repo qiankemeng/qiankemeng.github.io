@@ -4,11 +4,15 @@
  */
 
 import OpenAI from 'openai';
-import { config } from './config.js';
+import { apiConfig, modelConfig, summarizeConfig } from './config.js';
 
 // 初始化OpenAI客户端
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
+  apiKey: apiConfig.openai.apiKey,
+  baseURL: apiConfig.openai.baseURL,
+  organization: apiConfig.openai.organization,
+  timeout: apiConfig.openai.timeout,
+  maxRetries: apiConfig.openai.maxRetries,
 });
 
 /**
@@ -85,7 +89,7 @@ export async function summarizePaper(paper) {
 
   try {
     const response = await openai.chat.completions.create({
-      model: config.ai.summarizeModel,
+      model: modelConfig.summarize.model,
       messages: [
         {
           role: 'system',
@@ -96,8 +100,11 @@ export async function summarizePaper(paper) {
           content: buildSummarizePrompt(paper)
         }
       ],
-      temperature: config.ai.temperature,
-      max_tokens: config.ai.maxTokens
+      temperature: modelConfig.summarize.temperature,
+      max_tokens: modelConfig.summarize.maxTokens,
+      top_p: modelConfig.summarize.topP,
+      frequency_penalty: modelConfig.summarize.frequencyPenalty,
+      presence_penalty: modelConfig.summarize.presencePenalty,
     });
 
     const summary = response.choices[0].message.content;
@@ -119,7 +126,7 @@ export async function summarizePaper(paper) {
  * 批量总结论文
  */
 export async function summarizePapers(papers) {
-  console.log(`\n🤖 开始总结 ${papers.length} 篇论文 (使用 ${config.ai.summarizeModel})...\n`);
+  console.log(`\n🤖 开始总结 ${papers.length} 篇论文 (使用 ${modelConfig.summarize.model})...\n`);
 
   const summarizedPapers = [];
 
@@ -150,6 +157,11 @@ export async function summarizePapers(papers) {
  * 生成英文版本的简短总结
  */
 export async function generateEnglishSummary(paper) {
+  // 检查配置是否启用英文总结
+  if (!summarizeConfig.generateEnglish) {
+    return paper;
+  }
+
   console.log(`\n🌍 生成英文版本: ${paper.arxivId}...`);
 
   const prompt = `Based on the following paper information, write a concise English summary (300-500 words):
@@ -166,7 +178,7 @@ Use clear, professional English suitable for AI researchers.`;
 
   try {
     const response = await openai.chat.completions.create({
-      model: config.ai.summarizeModel,
+      model: modelConfig.summarize.model,
       messages: [
         {
           role: 'system',
@@ -177,8 +189,9 @@ Use clear, professional English suitable for AI researchers.`;
           content: prompt
         }
       ],
-      temperature: config.ai.temperature,
-      max_tokens: 2000
+      temperature: modelConfig.summarize.temperature,
+      max_tokens: 2000,
+      top_p: modelConfig.summarize.topP,
     });
 
     const summary_en = response.choices[0].message.content;

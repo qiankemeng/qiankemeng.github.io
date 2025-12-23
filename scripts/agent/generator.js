@@ -6,7 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { config } from './config.js';
+import { outputConfig, categoryMap } from './config.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,7 +25,6 @@ function generateSlug(title, arxivId) {
  * 生成中文Markdown文件内容
  */
 function generateChineseMarkdown(paper) {
-  const { categoryMap } = config;
   const tags = [
     ...paper.suggestedTags,
     ...paper.categories.map(cat => categoryMap[cat]).filter(Boolean),
@@ -167,7 +166,7 @@ ${paper.summary_en || '## Abstract\n\n' + paper.summary}
  */
 export function savePaperAsMarkdown(paper) {
   const slug = generateSlug(paper.title, paper.arxivId);
-  const outputDir = path.join(__dirname, '../../', config.output.directory);
+  const outputDir = path.join(__dirname, '../../', outputConfig.directory);
 
   // 确保输出目录存在
   if (!fs.existsSync(outputDir)) {
@@ -190,7 +189,7 @@ export function savePaperAsMarkdown(paper) {
     console.log(`✅ 已保存中文版本: ${filePathZh}`);
 
     // 生成并保存英文版本
-    if (config.output.generateEnglishVersion) {
+    if (outputConfig.generateEnglishVersion) {
       const contentEn = generateEnglishMarkdown(paper);
       fs.writeFileSync(filePathEn, contentEn, 'utf8');
       console.log(`✅ 已保存英文版本: ${filePathEn}`);
@@ -199,7 +198,7 @@ export function savePaperAsMarkdown(paper) {
     return {
       slug,
       filePathZh,
-      filePathEn: config.output.generateEnglishVersion ? filePathEn : null
+      filePathEn: outputConfig.generateEnglishVersion ? filePathEn : null
     };
   } catch (error) {
     console.error(`❌ 保存文件失败 ${slug}:`, error.message);

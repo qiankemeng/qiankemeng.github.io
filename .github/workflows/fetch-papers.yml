@@ -34,7 +34,27 @@ jobs:
 
       - name: Fetch and process papers
         env:
+          # Required
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+          # Optional - Custom API endpoint
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+          OPENAI_ORG_ID: ${{ secrets.OPENAI_ORG_ID }}
+
+          # Optional - AI Models
+          AI_FILTER_MODEL: ${{ secrets.AI_FILTER_MODEL }}
+          AI_SUMMARIZE_MODEL: ${{ secrets.AI_SUMMARIZE_MODEL }}
+
+          # Optional - Filter settings
+          MIN_RELEVANCE_SCORE: ${{ secrets.MIN_RELEVANCE_SCORE }}
+          MAX_PAPERS_PER_DAY: ${{ secrets.MAX_PAPERS_PER_DAY }}
+
+          # Optional - Output settings
+          GENERATE_ENGLISH: ${{ secrets.GENERATE_ENGLISH }}
+
+          # Optional - Logging
+          LOG_LEVEL: ${{ secrets.LOG_LEVEL }}
+          VERBOSE: ${{ secrets.VERBOSE }}
         run: |
           cd scripts
           node agent/main.js

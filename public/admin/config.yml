@@ -1,0 +1,205 @@
+# Decap CMS Configuration
+# 博客内容管理系统配置
+
+backend:
+  name: github
+  repo: qiankemeng/qiankemeng.github.io  # 替换为你的GitHub用户名/仓库名
+  branch: main
+  base_url: https://api.netlify.com  # 使用Netlify的OAuth服务
+  auth_endpoint: auth
+
+# 本地开发模式（可选）
+# local_backend: true
+
+# 媒体文件配置
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+# 发布模式：使用编辑工作流（草稿-审核-发布）
+publish_mode: editorial_workflow
+
+# 站点URL
+site_url: https://qiankemeng.github.io  # 替换为你的实际域名
+
+# Logo
+logo_url: https://qiankemeng.github.io/favicon.ico
+
+# 语言设置
+locale: 'zh_Hans'
+
+# 集合配置
+collections:
+  # ==================== 每日论文 ====================
+  - name: "daily-papers-zh"
+    label: "每日论文 (中文)"
+    label_singular: "论文"
+    folder: "src/content/blog/posts/daily-papers"
+    create: true
+    slug: "{{arxivId}}-{{year}}-{{month}}-{{day}}"
+    extension: "zh.md"
+    format: "frontmatter"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "摘要", name: "summary", widget: "text", required: false}
+      - {label: "arXiv ID", name: "arxivId", widget: "string"}
+      - {label: "作者", name: "authors", widget: "list"}
+      - {label: "分类", name: "categories", widget: "list"}
+      - {label: "论文链接", name: "arxivUrl", widget: "string"}
+      - {label: "PDF链接", name: "pdfUrl", widget: "string"}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "筛选评分", name: "filterScore", widget: "number", required: false}
+      - {label: "筛选理由", name: "filterReason", widget: "text", required: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "daily-papers-en"
+    label: "Daily Papers (English)"
+    label_singular: "Paper"
+    folder: "src/content/blog/posts/daily-papers"
+    create: true
+    slug: "{{arxivId}}-{{year}}-{{month}}-{{day}}"
+    extension: "en.md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "arXiv ID", name: "arxivId", widget: "string"}
+      - {label: "Authors", name: "authors", widget: "list"}
+      - {label: "Categories", name: "categories", widget: "list"}
+      - {label: "arXiv URL", name: "arxivUrl", widget: "string"}
+      - {label: "PDF URL", name: "pdfUrl", widget: "string"}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Filter Score", name: "filterScore", widget: "number", required: false}
+      - {label: "Filter Reason", name: "filterReason", widget: "text", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # ==================== 我的研究 ====================
+  - name: "research-zh"
+    label: "我的研究 (中文)"
+    label_singular: "研究文章"
+    folder: "src/content/blog/posts/research"
+    create: true
+    slug: "{{slug}}"
+    extension: "zh.md"
+    format: "frontmatter"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "摘要", name: "summary", widget: "text", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "封面图", name: "cover", widget: "image", required: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "research-en"
+    label: "Research (English)"
+    label_singular: "Research Article"
+    folder: "src/content/blog/posts/research"
+    create: true
+    slug: "{{slug}}"
+    extension: "en.md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Cover Image", name: "cover", widget: "image", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # ==================== 技术教程 ====================
+  - name: "tutorials-zh"
+    label: "技术教程 (中文)"
+    label_singular: "教程"
+    folder: "src/content/blog/posts/tutorials"
+    create: true
+    slug: "{{slug}}"
+    extension: "zh.md"
+    format: "frontmatter"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "摘要", name: "summary", widget: "text", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "难度", name: "difficulty", widget: "select", options: ["初级", "中级", "高级"], required: false}
+      - {label: "封面图", name: "cover", widget: "image", required: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "tutorials-en"
+    label: "Tutorials (English)"
+    label_singular: "Tutorial"
+    folder: "src/content/blog/posts/tutorials"
+    create: true
+    slug: "{{slug}}"
+    extension: "en.md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Difficulty", name: "difficulty", widget: "select", options: ["Beginner", "Intermediate", "Advanced"], required: false}
+      - {label: "Cover Image", name: "cover", widget: "image", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # ==================== 学习笔记 ====================
+  - name: "notes-zh"
+    label: "学习笔记 (中文)"
+    label_singular: "笔记"
+    folder: "src/content/blog/posts/notes"
+    create: true
+    slug: "{{slug}}"
+    extension: "zh.md"
+    format: "frontmatter"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "摘要", name: "summary", widget: "text", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "notes-en"
+    label: "Notes (English)"
+    label_singular: "Note"
+    folder: "src/content/blog/posts/notes"
+    create: true
+    slug: "{{slug}}"
+    extension: "en.md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # ==================== 杂项 ====================
+  - name: "others-zh"
+    label: "杂项 (中文)"
+    label_singular: "文章"
+    folder: "src/content/blog/posts/others"
+    create: true
+    slug: "{{slug}}"
+    extension: "zh.md"
+    format: "frontmatter"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "摘要", name: "summary", widget: "text", required: false}
+      - {label: "标签", name: "tags", widget: "list", required: false}
+      - {label: "内容", name: "body", widget: "markdown"}
+
+  - name: "others-en"
+    label: "Others (English)"
+    label_singular: "Article"
+    folder: "src/content/blog/posts/others"
+    create: true
+    slug: "{{slug}}"
+    extension: "en.md"
+    format: "frontmatter"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "Summary", name: "summary", widget: "text", required: false}
+      - {label: "Tags", name: "tags", widget: "list", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}

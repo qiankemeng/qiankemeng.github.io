@@ -13,7 +13,11 @@
       "Bash(sips:*)",
       "Bash(find:*)",
       "Bash(chmod:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(npm run agent:test:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

@@ -4,15 +4,19 @@
  */
 
 import https from 'https';
+import http from 'http';
 import xml2js from 'xml2js';
 import { arxivConfig, categoryMap } from './config.js';
 
 /**
- * 发起HTTPS请求
+ * 发起HTTP/HTTPS请求
  */
-function httpsGet(url) {
+function httpGet(url) {
   return new Promise((resolve, reject) => {
-    https.get(url, (res) => {
+    // 根据URL协议选择http或https模块
+    const client = url.startsWith('https:') ? https : http;
+
+    client.get(url, (res) => {
       let data = '';
       res.on('data', (chunk) => { data += chunk; });
       res.on('end', () => resolve(data));
@@ -75,7 +79,7 @@ export async function fetchTodayPapers() {
   console.log(`🔍 查询URL: ${url}`);
 
   try {
-    const xml = await httpsGet(url);
+    const xml = await httpGet(url);
     const papers = await parseArxivXML(xml);
 
     // 过滤出今天或昨天更新的论文（考虑时区差异）
@@ -111,7 +115,7 @@ export async function fetchPaperById(arxivId) {
   const url = `${arxivConfig.apiBaseUrl}?id_list=${cleanId}`;
 
   try {
-    const xml = await httpsGet(url);
+    const xml = await httpGet(url);
     const papers = await parseArxivXML(xml);
 
     if (papers.length === 0) {

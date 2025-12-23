@@ -80,8 +80,8 @@ export const arxivConfig = {
   // 每次获取的最大论文数
   maxResults: 100,
 
-  // API基础URL
-  apiBaseUrl: 'http://export.arxiv.org/api/query',
+  // API基础URL (使用https)
+  apiBaseUrl: 'https://export.arxiv.org/api/query',
 
   // 请求超时（毫秒）
   timeout: 30000,

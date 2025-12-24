@@ -5,12 +5,12 @@ backend:
   name: git-gateway
   branch: main
 
-# 测试模式（如需切换回测试）：
-# backend:
-#   name: test-repo
+# 启用本地开发模式（无需 OAuth，直接编辑本地文件）
+local_backend: true
 
-# 本地开发模式（可选）
-# local_backend: true
+# 其他模式（如需切换）：
+# 测试模式：name: test-repo
+# Vercel OAuth：添加 base_url 和 auth_endpoint
 
 # 媒体文件配置
 media_folder: "public/images/blog"

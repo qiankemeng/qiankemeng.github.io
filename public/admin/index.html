@@ -6,9 +6,6 @@
   <meta name="robots" content="noindex" />
   <title>博客管理后台 - Decap CMS</title>
 
-  <!-- Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
   <style>
     body {
       margin: 0;
@@ -18,9 +15,60 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+
+    /* Loading indicator */
+    #loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18px;
+      color: #333;
+      text-align: center;
+    }
+
+    #error {
+      display: none;
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f44336;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 4px;
+      max-width: 80%;
+      z-index: 9999;
+    }
   </style>
 </head>
 <body>
-  <!-- Decap CMS 会自动渲染在这里 -->
+  <div id="loading">正在加载 CMS...</div>
+  <div id="error"></div>
+
+  <!-- Decap CMS - 使用固定版本避免兼容性问题 -->
+  <script src="https://unpkg.com/decap-cms@3.1.11/dist/decap-cms.js"></script>
+
+  <script>
+    // 错误处理
+    window.addEventListener('error', function(e) {
+      document.getElementById('loading').style.display = 'none';
+      var errorDiv = document.getElementById('error');
+      errorDiv.style.display = 'block';
+      errorDiv.innerHTML = '加载失败: ' + e.message + '<br><br>请检查：<br>1. 网络连接<br>2. 浏览器控制台 (F12) 查看详细错误<br>3. config.yml 配置是否正确';
+    });
+
+    // CMS 加载完成
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        document.getElementById('loading').style.display = 'none';
+      }, 1000);
+    });
+
+    // 配置验证
+    if (window.CMS) {
+      console.log('✅ Decap CMS 加载成功');
+    }
+  </script>
 </body>
 </html>

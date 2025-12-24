@@ -1,0 +1,24 @@
+# Decap CMS - 简化测试配置
+# 如果主配置有问题，可以临时将此文件重命名为 config.yml 进行测试
+
+backend:
+  name: test-repo
+
+# 媒体文件配置
+media_folder: "public/images/blog"
+public_folder: "/images/blog"
+
+# 集合配置 - 仅包含一个简单示例
+collections:
+  - name: "notes-zh"
+    label: "学习笔记 (中文)"
+    folder: "src/content/blog/posts/notes"
+    create: true
+    slug: "{{slug}}"
+    extension: "zh.md"
+    format: "frontmatter"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD"}
+      - {label: "摘要", name: "summary", widget: "text", required: false}
+      - {label: "内容", name: "body", widget: "markdown"}

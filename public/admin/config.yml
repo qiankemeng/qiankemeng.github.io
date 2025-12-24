@@ -2,15 +2,12 @@
 # 博客内容管理系统配置
 
 backend:
-  name: test-repo  # 测试模式，无需 OAuth 认证（更改不会保存到 GitHub）
+  name: git-gateway
+  branch: main
 
-# 生产环境配置（需要配置 Netlify 后使用）：
+# 测试模式（如需切换回测试）：
 # backend:
-#   name: github
-#   repo: qiankemeng/qiankemeng.github.io
-#   branch: main
-#   base_url: https://api.netlify.com
-#   auth_endpoint: auth
+#   name: test-repo
 
 # 本地开发模式（可选）
 # local_backend: true

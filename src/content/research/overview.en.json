@@ -1,18 +1,18 @@
 {
-  "headline": "Multimodal Understanding & Generation",
-  "summary": "Researching multimodal large models, agents, and video question answering, with a focus on vision-language generative intelligence and cutting-edge methods in cross-modal understanding, autonomous reasoning, and long-form video analysis.",
+  "headline": "Long-Video Understanding, Multimodal Agents, and 3D Visual Grounding",
+  "summary": "My research focuses on multimodal large models and agent systems, especially long-form video understanding, video QA, hierarchical memory, MLLM-agent reasoning, and 2D-3D visual grounding. Recent outputs include CVPR 2026 and ICME 2026 papers on long-form video understanding and an arXiv preprint on 3D visual grounding.",
   "focus": [
     {
-      "title": "Multimodal Large Models",
-      "description": "Investigate robust alignment mechanisms across vision, language, and speech, combining contrastive learning with instruction tuning to enhance cross-modal semantic understanding and generation."
+      "title": "Long-Video Understanding",
+      "description": "Study video QA, event condensation, temporal memory, and multi-step reasoning for understanding long-duration video content."
     },
     {
-      "title": "Agent Systems",
-      "description": "Develop autonomous agents powered by large models, focusing on tool invocation, reasoning, planning, and environmental interaction for automated task execution."
+      "title": "MLLM Agent Systems",
+      "description": "Build multimodal agents with tool use, memory management, planning, and environment interaction for complex vision-language tasks and research workflows."
     },
     {
-      "title": "Video Question Answering",
-      "description": "Design temporal modeling and keyframe selection strategies for long-video understanding, integrating parameter-efficient tuning and few-shot learning to improve QA generalization and real-time performance."
+      "title": "3D Visual Grounding",
+      "description": "Investigate 2D-3D mappings, zero-shot 3D visual grounding, and cross-view consistency for open-world spatial semantic understanding."
     }
   ]
 }

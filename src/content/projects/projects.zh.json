@@ -1,16 +1,44 @@
 [
   {
-    "title": "Food Agent",
-    "summary": "面向食品饮料研发的 AI Agent，辅助从创意探索到配方设计、实验记录、合规校验的端到端工作流。",
-    "tags": ["Python", "AI Agent", "食品科技"],
+    "title": "VideoARM",
+    "summary": "长视频理解研究项目，围绕层次化记忆、智能体推理和长视频问答构建可扩展的视频理解框架，对应 CVPR 2026 论文。",
+    "tags": [
+      "Long Video",
+      "MLLM Agent",
+      "Research"
+    ],
     "links": {
-      "github": "https://github.com/qiankemeng/food_agent"
+      "github": "https://github.com/qiankemeng/VideoARM"
     }
   },
   {
-    "title": "DingTalk GPU 监控",
-    "summary": "无需管理员权限的 NVIDIA GPU 利用率和内存监控工具，支持钉钉告警通知。",
-    "tags": ["Shell", "DevOps", "监控"],
+    "title": "LongVideo Exploration",
+    "summary": "新一轮长视频理解探索线，聚焦粗粒度事件建模、可视化人工评估、视频记忆与多 Agent 实验闭环。",
+    "tags": [
+      "Video Understanding",
+      "Evaluation",
+      "Agent"
+    ],
+    "links": {}
+  },
+  {
+    "title": "VideoARM-MCP",
+    "summary": "围绕 VideoARM 能力的 MCP 服务封装探索，用于把长视频理解能力接入更通用的 Agent 工作流。",
+    "tags": [
+      "MCP",
+      "Agent Tooling",
+      "Video"
+    ],
+    "links": {}
+  },
+  {
+    "title": "DingTalk GPU Monitor",
+    "summary": "无需管理员权限的 NVIDIA GPU 利用率和显存监控工具，支持钉钉告警通知。",
+    "tags": [
+      "Shell",
+      "DevOps",
+      "Monitoring"
+    ],
     "links": {
       "github": "https://github.com/qiankemeng/dingtalk-gpu-monitor"
     }

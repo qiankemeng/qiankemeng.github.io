@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: '孟乾轲 | 个人主页',
     template: '%s | 孟乾轲'
   },
-  description: '孟乾轲（2002）从事多模态大模型研究的个人主页，展示科研方向、项目与联系信息。'
+  description: '孟乾轲的个人主页，展示多模态大模型、Agent 系统、长视频理解、视频问答与 3D 视觉定位方向的科研成果、项目与联系信息。'
 };
 
 export default function RootLayout({

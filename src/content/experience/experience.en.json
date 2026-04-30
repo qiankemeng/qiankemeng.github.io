@@ -1,18 +1,19 @@
 [
   {
-    "timeframe": "2024 - Present",
-    "title": "Graduate Student (Master's)",
+    "timeframe": "Sep 2024 - Present",
+    "title": "Master's Student",
     "company": "Hangzhou Dianzi University",
     "logo": "/images/school_logo/hdu-logo.png",
     "url": "https://www.hdu.edu.cn/",
     "highlights": [
       "Computer Technology",
-      "Research focus on multimodal large models"
+      "Media Intelligence Lab (MIL)",
+      "Research interests: multimodal large models, agent systems, long-video understanding, and video QA"
     ]
   },
   {
-    "timeframe": "2020 - 2024",
-    "title": "Undergraduate (Bachelor's)",
+    "timeframe": "Sep 2020 - Jun 2024",
+    "title": "Undergraduate Student",
     "company": "Henan University",
     "logo": "/images/school_logo/henu-logo.png",
     "url": "https://www.henu.edu.cn/",

@@ -1,15 +1,20 @@
 [
   {
-    "title": "VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding (Under review at CVPR)",
-    "year": "2024",
+    "title": "VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding (CVPR 2026)",
+    "year": "2026",
     "category": "Paper",
-    "summary": "Proposing an agentic reasoning framework with hierarchical memory for long-form video understanding. Achieved significant improvements on multiple long-form video QA benchmarks.",
-    "tags": ["Video Understanding", "Agents", "Multimodal", "Long Video"],
+    "summary": "A hierarchical-memory and agentic-reasoning framework for long-form video understanding, accepted to CVPR 2026. The work focuses on information compression, memory organization, and multi-step reasoning for long-video QA.",
+    "tags": [
+      "Long-Form Video Understanding",
+      "Agentic Reasoning",
+      "Hierarchical Memory",
+      "Video QA"
+    ],
     "links": [
       {
-        "label": "Download PDF",
-        "url": "/papers/videoarm-paper.pdf",
-        "type": "file"
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2512.12360",
+        "type": "link"
       },
       {
         "label": "GitHub",
@@ -24,21 +29,58 @@
     ]
   },
   {
+    "title": "Progressive Video Condensation with MLLM Agent for Long-form Video Understanding (ICME 2026)",
+    "year": "2026",
+    "category": "Paper",
+    "summary": "A study on progressive video condensation and MLLM-agent reasoning for long-form video understanding, accepted to ICME 2026.",
+    "tags": [
+      "Long-Form Video Understanding",
+      "MLLM Agent",
+      "Video Condensation",
+      "Multimodal"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2604.02891",
+        "type": "link"
+      }
+    ]
+  },
+  {
+    "title": "Multiple Consistent 2D-3D Mappings for Robust Zero-Shot 3D Visual Grounding",
+    "year": "2026",
+    "category": "Preprint",
+    "summary": "A robust zero-shot 3D visual grounding method based on multiple consistent 2D-3D mappings. Qianke Meng is the third author; the paper is available on arXiv.",
+    "tags": [
+      "3D Visual Grounding",
+      "2D-3D Mapping",
+      "Zero-Shot",
+      "Multimodal"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2604.26261",
+        "type": "link"
+      }
+    ]
+  },
+  {
     "title": "Aesthetic Feature Modeling of Classical Jiangnan Gardens (National First Prize, China Graduate Mathematical Modeling Contest)",
-    "year": "2024",
+    "year": "2025",
     "category": "Contest",
-    "summary": "Mathematical modeling approach to analyze aesthetic features and spatial layout patterns of classical Jiangnan gardens.",
-    "tags": ["Mathematical Modeling", "Multimodal", "Aesthetic Analysis"],
+    "summary": "A mathematical modeling study of aesthetic features and spatial layout patterns in classical Jiangnan gardens, awarded National First Prize in the China Graduate Mathematical Modeling Contest.",
+    "tags": [
+      "Mathematical Modeling",
+      "Aesthetic Analysis",
+      "Spatial Modeling"
+    ],
     "links": [
       {
         "label": "Download PDF",
         "url": "/papers/Mathematical_Modeling.pdf",
         "type": "file"
-      },
-      {
-        "label": "GitHub",
-        "url": "https://github.com/qiankemeng/jiangnan-garden-modeling",
-        "type": "link"
       },
       {
         "label": "View Details",
@@ -50,19 +92,19 @@
   {
     "title": "Undergraduate Thesis: Analysis and Practice of PDE Solving Methods Based on Fourier Neural Operator",
     "year": "2024",
-    "category": "Paper",
-    "summary": "Research on deep learning methods for solving partial differential equations using Fourier Neural Operator (FNO), achieving a balance between high accuracy and efficiency on multiple classic PDE benchmarks, exploring a new data-driven paradigm for scientific computing.",
-    "tags": ["Neural Operator", "PDE", "Scientific Computing", "Deep Learning"],
+    "category": "Thesis",
+    "summary": "A study of deep-learning methods for solving partial differential equations with Fourier Neural Operators, exploring data-driven scientific computing.",
+    "tags": [
+      "Neural Operator",
+      "PDE",
+      "Scientific Computing",
+      "Deep Learning"
+    ],
     "links": [
       {
         "label": "Download PDF",
         "url": "/papers/qianke-undergraduate-thesis.pdf",
         "type": "file"
-      },
-      {
-        "label": "GitHub",
-        "url": "https://github.com/qiankemeng/knowledge-augmented-multimodal-qa",
-        "type": "link"
       },
       {
         "label": "View Details",

@@ -4,16 +4,16 @@ import Link from 'next/link';
 export function HeroSection({ locale }: { locale: 'zh' | 'en' }) {
   const copy = locale === 'zh'
     ? {
-        tagline: '多模态大模型研究',
+        tagline: '长视频理解 · 多模态智能体',
         title: '你好，我是孟乾轲',
-        subtitle: '主要从事多模态大模型、智能体、视频问答相关的科研工作，聚焦视觉与语言融合的生成智能。',
+        subtitle: '杭州电子科技大学硕士研究生，研究方向包括多模态大模型、Agent 系统、长视频理解与视频问答。近期工作发表于 CVPR 2026、ICME 2026，并持续探索长视频多 Agent 系统。',
         actionPortfolio: '查看作品集',
         actionResume: '下载简历'
       }
     : {
-        tagline: 'Multimodal AI Research',
+        tagline: 'Long-Video Understanding · Multimodal Agents',
         title: "Hi, I'm Meng Qianke",
-        subtitle: 'Focusing on multimodal large models, agents, and video question answering, with an emphasis on vision-language generative intelligence.',
+        subtitle: 'I am a master\'s student at Hangzhou Dianzi University, working on multimodal large models, agent systems, long-video understanding, and video QA. Recent work appears at CVPR 2026 and ICME 2026, and I am continuing to explore long-video multi-agent systems.',
         actionPortfolio: 'View portfolio',
         actionResume: 'Download résumé'
       };

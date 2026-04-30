@@ -1,16 +1,44 @@
 [
   {
-    "title": "Food Agent",
-    "summary": "An AI agent for food and beverage R&D teams, supporting end-to-end workflow from ideation to formulation, experimentation, compliance, and evaluation.",
-    "tags": ["Python", "AI Agent", "FoodTech"],
+    "title": "VideoARM",
+    "summary": "A long-form video understanding research project on hierarchical memory, agentic reasoning, and long-video QA, corresponding to the CVPR 2026 paper.",
+    "tags": [
+      "Long Video",
+      "MLLM Agent",
+      "Research"
+    ],
     "links": {
-      "github": "https://github.com/qiankemeng/food_agent"
+      "github": "https://github.com/qiankemeng/VideoARM"
     }
   },
   {
+    "title": "LongVideo Exploration",
+    "summary": "An active exploration line for long-video understanding, focusing on coarse event modeling, visual human evaluation, video memory, and multi-agent experiment loops.",
+    "tags": [
+      "Video Understanding",
+      "Evaluation",
+      "Agent"
+    ],
+    "links": {}
+  },
+  {
+    "title": "VideoARM-MCP",
+    "summary": "An MCP service-wrapper exploration for connecting VideoARM-style long-video understanding capabilities to general agent workflows.",
+    "tags": [
+      "MCP",
+      "Agent Tooling",
+      "Video"
+    ],
+    "links": {}
+  },
+  {
     "title": "DingTalk GPU Monitor",
-    "summary": "A Bash script for monitoring NVIDIA GPU utilization and memory without admin privileges, with DingTalk alerts.",
-    "tags": ["Shell", "DevOps", "Monitoring"],
+    "summary": "A lightweight NVIDIA GPU utilization and memory monitor without admin privileges, with DingTalk alert notifications.",
+    "tags": [
+      "Shell",
+      "DevOps",
+      "Monitoring"
+    ],
     "links": {
       "github": "https://github.com/qiankemeng/dingtalk-gpu-monitor"
     }

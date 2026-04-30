@@ -1,61 +1,32 @@
 ---
 title: "VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding"
-date: "2024-11-15"
-summary: "Proposing an agentic reasoning framework with hierarchical memory for long-form video understanding. (Under review at CVPR)"
-tags: ["Video Understanding", "Agents", "Multimodal", "Long Video"]
+date: "2025-12-13"
+summary: "A hierarchical-memory and agentic-reasoning framework for long-form video understanding, accepted to CVPR 2026."
+tags: ["Video Understanding", "Agents", "Multimodal", "Long Video", "CVPR 2026"]
 ---
 
 # VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding
 
-**Status**: Under review at CVPR
+**Status**: Accepted to CVPR 2026<br/>
+**arXiv**: https://arxiv.org/abs/2512.12360<br/>
+**Code**: https://github.com/qiankemeng/VideoARM
 
 ## Background
 
-Long-form video understanding is a critical challenge in multimodal large models. Traditional methods face issues such as high computational complexity and difficulty in extracting key information when processing long videos. This paper proposes the VideoARM framework, achieving efficient long-form video understanding through agentic reasoning and hierarchical memory mechanisms.
+Long-form video understanding requires models to preserve key events across long temporal spans, connect information across segments, and perform multi-step reasoning when answering questions. Feeding many raw frames directly into context is costly and often leads to noise accumulation and missed key evidence.
 
-## Core Innovations
+VideoARM addresses this problem with a hierarchical memory and agentic reasoning framework for long-video question answering. The framework enables controlled retrieval and reasoning over compressed video memories instead of consuming the whole video context at once.
 
-### 1. Hierarchical Memory Architecture
+## Core Ideas
 
-We design a multi-level memory structure:
-- **Short-term Memory**: Stores visual features of current frames
-- **Medium-term Memory**: Maintains keyframes and event summaries
-- **Long-term Memory**: Preserves global semantic representations
+- **Hierarchical video memory**: Organize long-video information into event-, segment-, and global-level semantic memories.
+- **Agentic reasoning**: Let the agent dynamically access relevant memories according to the question.
+- **Long-video QA loop**: Unify visual information extraction, memory organization, and reasoning-based answering in an extensible pipeline.
 
-### 2. Agentic Reasoning Mechanism
+## Current Role
 
-Large model-based agents can:
-- Autonomously decide when to access different memory levels
-- Dynamically adjust keyframe selection strategies
-- Perform multi-step reasoning to answer complex questions
-
-### 3. Temporal Modeling Strategy
-
-For temporal relationships in long videos, we propose:
-- Adaptive temporal sampling algorithm
-- Event boundary detection module
-- Cross-frame relation modeling network
-
-## Experimental Results
-
-Significant improvements on multiple long-form video QA benchmarks:
-
-- **ActivityNet-QA**: +8.3% improvement
-- **EgoSchema**: +12.1% improvement
-- **NExT-QA**: +6.7% improvement
-
-## Method Advantages
-
-1. **Efficiency**: 70% reduction in computation compared to full-frame processing
-2. **Accuracy**: Outperforms existing methods on long-form video understanding tasks
-3. **Interpretability**: Visualizable agent reasoning process
-
-## Future Work
-
-- Explore larger-scale video datasets
-- Research real-time inference optimization strategies
-- Extend to multimodal video understanding tasks
+This work is one of my main research outputs on long-form video understanding and multimodal agents. It also motivates my ongoing exploration of video memory, long-video multi-agent systems, and visualization-assisted evaluation.
 
 ---
 
-**Keywords**: Long-Form Video Understanding | Agentic Reasoning | Hierarchical Memory | Video QA
+**Keywords**: Long-Form Video Understanding | Agentic Reasoning | Hierarchical Memory | Video QA | CVPR 2026

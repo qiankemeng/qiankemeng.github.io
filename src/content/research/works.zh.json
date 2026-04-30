@@ -1,15 +1,20 @@
 [
   {
-    "title": "VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding（CVPR 在投）",
-    "year": "2024",
+    "title": "VideoARM: Agentic Reasoning over Hierarchical Memory for Long-Form Video Understanding（CVPR 2026）",
+    "year": "2026",
     "category": "论文",
-    "summary": "提出基于层次化记忆的智能体推理框架，用于长视频理解任务。在多个长视频问答基准测试上取得显著提升。",
-    "tags": ["视频理解", "智能体", "多模态", "长视频"],
+    "summary": "面向长视频理解的层次化记忆与智能体推理框架，已被 CVPR 2026 接收。论文聚焦长视频问答中的信息压缩、记忆组织与多步推理。",
+    "tags": [
+      "长视频理解",
+      "智能体推理",
+      "层次化记忆",
+      "视频问答"
+    ],
     "links": [
       {
-        "label": "下载 PDF",
-        "url": "/papers/videoarm-paper.pdf",
-        "type": "file"
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2512.12360",
+        "type": "link"
       },
       {
         "label": "GitHub",
@@ -24,21 +29,58 @@
     ]
   },
   {
+    "title": "Progressive Video Condensation with MLLM Agent for Long-form Video Understanding（ICME 2026）",
+    "year": "2026",
+    "category": "论文",
+    "summary": "围绕长视频理解中的渐进式视频压缩与 MLLM Agent 协同推理展开研究，已被 ICME 2026 接收。",
+    "tags": [
+      "长视频理解",
+      "MLLM Agent",
+      "视频压缩",
+      "多模态"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2604.02891",
+        "type": "link"
+      }
+    ]
+  },
+  {
+    "title": "Multiple Consistent 2D-3D Mappings for Robust Zero-Shot 3D Visual Grounding",
+    "year": "2026",
+    "category": "预印本",
+    "summary": "面向零样本 3D 视觉定位的鲁棒 2D-3D 一致映射方法，乾轲为第三作者。论文已公开于 arXiv。",
+    "tags": [
+      "3D视觉定位",
+      "2D-3D映射",
+      "零样本",
+      "多模态"
+    ],
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2604.26261",
+        "type": "link"
+      }
+    ]
+  },
+  {
     "title": "江南古典园林的美学特征建模（中国研究生数学建模大赛国家一等奖）",
-    "year": "2024",
+    "year": "2025",
     "category": "竞赛",
-    "summary": "基于数学建模方法分析江南古典园林的美学特征与空间布局规律。",
-    "tags": ["数学建模", "多模态", "美学分析"],
+    "summary": "基于数学建模方法分析江南古典园林的美学特征与空间布局规律，获中国研究生数学建模竞赛一等奖。",
+    "tags": [
+      "数学建模",
+      "美学分析",
+      "空间建模"
+    ],
     "links": [
       {
         "label": "下载 PDF",
         "url": "/papers/Mathematical_Modeling.pdf",
         "type": "file"
-      },
-      {
-        "label": "GitHub",
-        "url": "https://github.com/qiankemeng/jiangnan-garden-modeling",
-        "type": "link"
       },
       {
         "label": "查看详情",
@@ -51,18 +93,18 @@
     "title": "本科毕业论文：基于 Fourier 神经算子的求解微分方程方法的分析与实践",
     "year": "2024",
     "category": "论文",
-    "summary": "基于 Fourier 神经算子（FNO）研究偏微分方程的深度学习求解方法，在多个经典 PDE 基准上实现了高精度与高效率的平衡，探索数据驱动的科学计算新范式。",
-    "tags": ["神经算子", "偏微分方程", "科学计算", "深度学习"],
+    "summary": "基于 Fourier 神经算子（FNO）研究偏微分方程的深度学习求解方法，探索数据驱动的科学计算范式。",
+    "tags": [
+      "神经算子",
+      "偏微分方程",
+      "科学计算",
+      "深度学习"
+    ],
     "links": [
       {
         "label": "下载 PDF",
         "url": "/papers/qianke-undergraduate-thesis.pdf",
         "type": "file"
-      },
-      {
-        "label": "GitHub",
-        "url": "https://github.com/qiankemeng/knowledge-augmented-multimodal-qa",
-        "type": "link"
       },
       {
         "label": "查看详情",

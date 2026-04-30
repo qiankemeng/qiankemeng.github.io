@@ -3,7 +3,7 @@
 [![Deploy](https://github.com/qiankemeng/qiankemeng.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/qiankemeng/qiankemeng.github.io/actions/workflows/deploy.yml)
 [![Fetch Papers](https://github.com/qiankemeng/qiankemeng.github.io/actions/workflows/fetch-papers.yml/badge.svg)](https://github.com/qiankemeng/qiankemeng.github.io/actions/workflows/fetch-papers.yml)
 
-基于 Next.js 14 的双语个人主页、博客与论文展示系统，静态导出并部署到 GitHub Pages。
+基于 Next.js 15 的双语个人主页、博客与论文展示系统，静态导出并部署到 GitHub Pages。
 
 - 在线地址：https://qiankemeng.github.io/
 - 仓库：https://github.com/qiankemeng/qiankemeng.github.io
@@ -171,5 +171,5 @@ GitHub Actions secrets 仅在仓库 Settings 中配置，不写入源码。
 - 保持主页内容、论文、项目、CV 与真实学术状态同步；
 - 保持中英文内容一致；
 - 维护 lint/build 绿色；
-- 逐步处理 `npm audit` 漏洞，避免破坏静态导出；
+- 逐步处理 `npm audit` 漏洞，保持静态导出可构建；
 - 避免恢复旧的重复文档。

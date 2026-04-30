@@ -9,7 +9,7 @@ import { CommentsSection } from '@/components/comments-section';
 import 'highlight.js/styles/github-dark.css';
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
@@ -17,7 +17,8 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const post = getPostBySlug(params.slug, 'zh');
+  const { slug } = await params;
+  const post = getPostBySlug(slug, 'zh');
 
   if (!post) {
     return {
@@ -37,8 +38,9 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default function BlogPostZh({ params }: Props) {
-  const post = getPostBySlug(params.slug, 'zh');
+export default async function BlogPostZh({ params }: Props) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug, 'zh');
 
   if (!post) {
     notFound();

@@ -1,5 +1,7 @@
 import { getAllPosts } from '@/lib/blog';
 
+export const dynamic = 'force-static';
+
 export async function GET() {
   const posts = getAllPosts('zh');
   const siteUrl = 'https://qiankemeng.github.io';

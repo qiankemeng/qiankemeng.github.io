@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Github, Linkedin, Twitter, MessageSquare, QrCode } from 'lucide-react';
+import { Mail, GitFork, Link as LinkIcon, X, MessageSquare, QrCode } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
@@ -72,7 +72,7 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 transition hover:border-[var(--accent)] hover:bg-slate-50 dark:border-slate-700 dark:hover:border-[var(--accent)] dark:hover:bg-slate-800"
                 >
-                  <Github className="h-5 w-5 text-slate-600 dark:text-slate-400" />
+                  <GitFork className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                   <span className="text-sm font-medium">GitHub</span>
                 </Link>
                 <Link
@@ -81,7 +81,7 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 transition hover:border-[var(--accent)] hover:bg-slate-50 dark:border-slate-700 dark:hover:border-[var(--accent)] dark:hover:bg-slate-800"
                 >
-                  <Linkedin className="h-5 w-5 text-slate-600 dark:text-slate-400" />
+                  <LinkIcon className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                   <span className="text-sm font-medium">LinkedIn</span>
                 </Link>
                 <Link
@@ -90,7 +90,7 @@ export function ContactSection({ locale }: { locale: 'zh' | 'en' }) {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 transition hover:border-[var(--accent)] hover:bg-slate-50 dark:border-slate-700 dark:hover:border-[var(--accent)] dark:hover:bg-slate-800"
                 >
-                  <Twitter className="h-5 w-5 text-slate-600 dark:text-slate-400" />
+                  <X className="h-5 w-5 text-slate-600 dark:text-slate-400" />
                   <span className="text-sm font-medium">Twitter</span>
                 </Link>
               </div>

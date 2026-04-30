@@ -138,5 +138,5 @@ Do not recreate deleted legacy top-level docs unless Qianke explicitly asks. Mer
 ## Known gaps
 
 - No test suite is wired yet; lint and build are the current quality gates.
-- Dependency audit currently reports vulnerabilities; fix them in a separate dependency-maintenance pass with build verification.
+- Dependency audit currently reports zero vulnerabilities; keep dependency upgrades verified with lint/build.
 - CMS production OAuth is not the default path; local CMS mode is the maintained default unless a remote editing workflow is explicitly needed.

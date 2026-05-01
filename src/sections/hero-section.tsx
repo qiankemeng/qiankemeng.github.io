@@ -2,9 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const stats = [
-  { value: 'CVPR 2026', labelZh: '长视频推理', labelEn: 'Long-video reasoning' },
-  { value: 'ICME 2026', labelZh: '视频压缩智能体', labelEn: 'Video condensation agent' },
-  { value: 'MLLM Agent', labelZh: '研究主线', labelEn: 'Research thread' }
+  { value: 'VideoARM', labelZh: '层次化记忆推理', labelEn: 'Hierarchical memory reasoning' },
+  { value: 'Video Condensation', labelZh: '渐进式视频压缩', labelEn: 'Progressive video condensation' },
+  { value: 'Harness', labelZh: '长视频实验工程', labelEn: 'Long-video experiment tooling' }
 ];
 
 export function HeroSection({ locale }: { locale: 'zh' | 'en' }) {
@@ -12,19 +12,19 @@ export function HeroSection({ locale }: { locale: 'zh' | 'en' }) {
     ? {
         tagline: '长视频理解 · 多模态智能体',
         title: ['面向长视频理解的', '多模态智能体研究'],
-        intro: '你好，我是孟乾轲，杭州电子科技大学硕士研究生。当前聚焦多模态大模型、Agent 系统、长视频理解与视频问答，持续构建可复现的长视频多 Agent 研究与实验基础设施。',
+        intro: '你好，我是孟乾轲，杭州电子科技大学硕士研究生。我的工作围绕长视频理解中的记忆组织、视频压缩、多步推理与评测 harness 展开，目标是让多模态智能体更可靠地处理长时间跨度视频内容。',
         actionPortfolio: '查看研究与项目',
         actionResume: '下载中文简历',
-        status: '近期工作发表于 CVPR 2026 与 ICME 2026',
+        status: '当前重点：VideoARM、渐进式视频压缩与长视频实验闭环',
         avatarAlt: '孟乾轲'
       }
     : {
         tagline: 'Long-Video Understanding · Multimodal Agents',
         title: ['Multimodal agent research', 'for long-form video understanding'],
-        intro: 'I am Meng Qianke, a master\'s student at Hangzhou Dianzi University. My work focuses on multimodal large models, agent systems, long-video understanding, and video QA, with an emphasis on reproducible research infrastructure.',
+        intro: 'I am Meng Qianke, a master\'s student at Hangzhou Dianzi University. My work centers on memory organization, video condensation, multi-step reasoning, and evaluation harnesses for long-form video understanding, aiming to make multimodal agents more reliable over long temporal contexts.',
         actionPortfolio: 'View research & projects',
         actionResume: 'Download résumé',
-        status: 'Recent work appears at CVPR 2026 and ICME 2026',
+        status: 'Current focus: VideoARM, progressive video condensation, and long-video experiment loops',
         avatarAlt: 'Meng Qianke'
       };
 

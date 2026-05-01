@@ -20,10 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh" suppressHydrationWarning>
-      <body className={cn('min-h-screen bg-[var(--background)] text-[var(--foreground)]')}>
+      <body className={cn('min-h-screen bg-[var(--background)] text-[var(--foreground)] antialiased')}>
         <Providers>
           <SiteHeader />
-          <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-6 py-10 sm:px-10">
+          <main className="mx-auto flex w-full max-w-6xl flex-1 flex-col px-5 py-6 sm:px-8 sm:py-10">
             {children}
           </main>
           <SiteFooter />

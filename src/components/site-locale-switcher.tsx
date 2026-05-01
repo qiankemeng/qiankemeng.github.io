@@ -20,7 +20,8 @@ export function LocaleSwitcher() {
   return (
     <Link
       href={nextPath}
-      className="rounded-full border border-slate-200 px-3 py-1 text-xs uppercase tracking-wide hover:bg-slate-100"
+      className="pill-link h-10 px-3 text-xs uppercase tracking-wide text-[var(--muted)] hover:text-[var(--foreground)]"
+      aria-label={targetLocale === 'en' ? 'Switch to English' : '切换到中文'}
     >
       {targetLocale}
     </Link>

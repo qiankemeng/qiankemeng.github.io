@@ -14,9 +14,9 @@ interface Project {
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <li className="rounded-2xl border border-slate-200 bg-white/60 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/60">
+    <li className="glass-card rounded-2xl p-6">
       <div className="flex items-start justify-between gap-3">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+        <h3 className="text-lg font-semibold tracking-[-0.02em] text-[var(--foreground)]">
           {project.title}
         </h3>
         <div className="flex gap-2 text-sm text-[var(--accent)]">
@@ -32,14 +32,14 @@ function ProjectCard({ project }: { project: Project }) {
           ) : null}
         </div>
       </div>
-      <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">
+      <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
         {project.summary}
       </p>
       <div className="mt-4 flex flex-wrap gap-2">
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-wide text-slate-500 dark:bg-slate-800 dark:text-slate-300"
+            className="meta-chip"
           >
             {tag}
           </span>
@@ -53,14 +53,14 @@ export function ProjectsSection({ locale }: { locale: 'zh' | 'en' }) {
   const collection = (locale === 'zh' ? projectsZh : projectsEn) as Project[];
 
   return (
-    <section id="projects" className="py-16">
+    <section id="projects" className="section-shell">
       <div className="mb-8 flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-semibold">
+          <h2 className="text-2xl font-semibold tracking-[-0.03em]">
             {locale === 'zh' ? '精选项目' : 'Featured Projects'}
           </h2>
         </div>
-        <Link href={locale === 'zh' ? '/projects' : '/en/projects'} className="text-sm">
+        <Link href={locale === 'zh' ? '/projects' : '/en/projects'} className="pill-link text-[var(--accent)] hover:border-[var(--accent)]">
           {locale === 'zh' ? '查看全部' : 'View all'}
         </Link>
       </div>

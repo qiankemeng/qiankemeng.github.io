@@ -16,17 +16,17 @@ export function ExperienceSection({ locale }: { locale: 'zh' | 'en' }) {
   const list = (locale === 'zh' ? experienceZh : experienceEn) as ExperienceItem[];
 
   return (
-    <section id="experience" className="py-16">
-      <h2 className="text-2xl font-semibold">
+    <section id="experience" className="section-shell">
+      <h2 className="text-2xl font-semibold tracking-[-0.03em]">
         {locale === 'zh' ? '经历' : 'Experience'}
       </h2>
-      <ol className="mt-8 space-y-6 border-l border-slate-200 pl-6 dark:border-slate-700">
+      <ol className="mt-8 space-y-6 border-l border-[var(--border)] pl-6">
         {list.map((item) => (
           <li key={`${item.company}-${item.timeframe}`} className="relative">
-            <span className="absolute -left-3 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--accent)] text-xs text-white">
+            <span className="absolute -left-3 top-1 flex h-5 w-5 items-center justify-center rounded-full bg-[var(--accent)] text-xs text-white shadow-lg shadow-indigo-500/20">
               ●
             </span>
-            <div className="rounded-xl border border-slate-200 bg-white/60 p-6 shadow-sm dark:border-slate-700 dark:bg-slate-900/60">
+            <div className="glass-card rounded-2xl p-6">
               <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
                 <div className="flex items-start gap-4">
                   <Link href={item.url} target="_blank" rel="noopener noreferrer" className="shrink-0">
@@ -39,7 +39,7 @@ export function ExperienceSection({ locale }: { locale: 'zh' | 'en' }) {
                     />
                   </Link>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                    <h3 className="text-lg font-semibold tracking-[-0.02em] text-[var(--foreground)]">
                       {item.title} ·{' '}
                       <Link
                         href={item.url}
@@ -50,14 +50,14 @@ export function ExperienceSection({ locale }: { locale: 'zh' | 'en' }) {
                         {item.company}
                       </Link>
                     </h3>
-                    <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                    <ul className="mt-3 space-y-2 text-sm leading-6 text-[var(--muted)]">
                       {item.highlights.map((highlight) => (
                         <li key={highlight}>• {highlight}</li>
                       ))}
                     </ul>
                   </div>
                 </div>
-                <span className="text-xs uppercase tracking-wide text-slate-500 sm:text-right">
+                <span className="text-xs uppercase tracking-wide text-[var(--muted)] sm:text-right">
                   {item.timeframe}
                 </span>
               </div>

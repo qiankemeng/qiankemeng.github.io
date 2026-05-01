@@ -13,7 +13,6 @@ export const siteConfig = {
   qrcodes: {
     wechat: '/images/qrcodes/wechat-qr.png',
     xiaohongshu: '/images/qrcodes/xiaohongshu-qr.png',
-    x: '/images/qrcodes/x-qr.png',
   }
 };
 
